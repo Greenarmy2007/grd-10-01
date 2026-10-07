@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0B1726">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Volunteer CMS Portal &amp; Content Management | GRD-10 Achiever Awards</title>
+  <meta name="description" content="Authorized institutional control center for non-technical committee volunteers to edit website content, categories, annual editions, and review confidential nominations.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/grd-10-logo.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .cms-tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--color-navy-border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .cms-tab-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,241,232,0.7);
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .cms-tab-btn:hover {
+      color: var(--color-champagne-gold);
+    }
+    .cms-tab-btn.active {
+      color: var(--color-champagne-gold);
+      border-bottom-color: var(--color-champagne-gold);
+      background: rgba(200, 169, 106, 0.06);
+    }
+    .cms-tab-panel {
+      display: none;
+    }
+    .cms-tab-panel.active {
+      display: block;
+    }
+    .cms-card {
+      background: var(--color-deep-navy);
+      border: 1px solid var(--color-navy-border);
+      border-radius: 2px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .cms-table th {
+      background: #0b1726;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-champagne-gold);
+      border-bottom: 1px solid var(--color-navy-border);
+    }
+    .cms-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(200, 169, 106, 0.12);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body class="section-dark">
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="header-brand" aria-label="GRD-10 Home">
+        <div class="brand-emblem">
+          <span class="brand-emblem-text">GRD</span>
+          <span class="brand-emblem-sub">CMS</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">GRD<span>—</span>10</span>
+          <span class="brand-subtitle">Volunteer Management Portal</span>
+          <span class="brand-initiative">Institutional Content Editor</span>
+        </div>
+      </a>
+
+      <nav class="nav-desktop">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Return to Public Site</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta-wrap">
+        <button id="cmsLogoutBtn" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.5rem 1rem;">Lock Vault</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+    <div class="container">
+
+      <!-- 1. Passcode Authentication Gate -->
+      <section id="cmsLoginSection" style="max-width: 480px; margin: 4rem auto; background: var(--color-deep-navy); border: 1px solid var(--color-champagne-gold); padding: 3rem 2.2rem; border-radius: 2px;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <div class="brand-emblem" style="margin: 0 auto 1rem; width: 52px; height: 52px;">
+            <span class="brand-emblem-text" style="font-size:0.9rem;">GRD</span>
+            <span class="brand-emblem-sub">SEC</span>
+          </div>
+          <h1 style="font-size: 1.6rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.5rem;">
+            Institutional CMS Portal
+          </h1>
+          <p style="font-size: 0.82rem; color: var(--color-muted-text-dark);">
+            Authorized access only. Enter the designated volunteer committee passkey to edit site content, manage annual editions, and review nominations.
+          </p>
+        </div>
+
+        <form id="cmsLoginForm">
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="cmsPasswordInput">Volunteer Passkey</label>
+            <input type="password" id="cmsPasswordInput" class="form-control" placeholder="Default passkey: grd2026" required autofocus>
+            <span class="form-hint">Default credential: <code>grd2026</code> (Changeable in settings).</span>
+          </div>
+          <div id="cmsLoginError" style="display: none; color: #ff8b8b; font-size: 0.8rem; margin-bottom: 1rem; padding: 0.5rem; background: rgba(255,0,0,0.1); border-left: 2px solid #ff5555;"></div>
+          <button type="submit" class="btn btn-gold" style="width: 100%;">Unlock Volunteer Portal</button>
+        </form>
+      </section>
+
+      <!-- 2. Administrative Control Dashboard -->
+      <section id="cmsDashboardSection" style="display: none;">
+        
+        <!-- Header Strip -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--color-navy-border); padding-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="eyebrow">Volunteer Content Editor</span>
+            <h1 style="font-size: 2.2rem; color: var(--color-ivory); margin-bottom: 0.25rem;">
+              Website Management Center
+            </h1>
+            <p id="cmsActiveEditionText" style="color: var(--color-champagne-gold); font-size: 0.9rem; margin: 0;">
+              Active Edition: 2026 Inaugural • 10 November 2026, Mumbai
+            </p>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div style="display: flex; gap: 1.25rem;">
+            <div style="background: #0b1726; border: 1px solid var(--color-navy-border); padding: 0.8rem 1.4rem; border-radius: 2px; text-align: center;">
+              <div id="statTotalNominations" style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-champagne-gold); font-weight: 700; line-height: 1;">0</div>
+              <div style="font-size: 0.7rem; color: var(--color-ivory); letter-spacing: 0.1em; text-transform: uppercase;">Nominations</div>
+            </div>
+            <div style="background: #0b1726; border: 1px solid var(--color-navy-border); padding: 0.8rem 1.4rem; border-radius: 2px; text-align: center;">
+              <div id="statTotalCategories" style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-champagne-gold); font-weight: 700; line-height: 1;">5</div>
+              <div style="font-size: 0.7rem; color: var(--color-ivory); letter-spacing: 0.1em; text-transform: uppercase;">Categories</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="cms-tab-bar" id="cmsTabBar">
+          <button class="cms-tab-btn active" data-tab="tabNominations">Jury Nominations</button>
+          <button class="cms-tab-btn" data-tab="tabSettings">Site Settings &amp; Year</button>
+          <button class="cms-tab-btn" data-tab="tabCategories">Categories (01–10)</button>
+          <button class="cms-tab-btn" data-tab="tabAwardees">Laureates ("The 10")</button>
+          <button class="cms-tab-btn" data-tab="tabVoices">Voices &amp; Videos</button>
+          <button class="cms-tab-btn" data-tab="tabBackup">Backup &amp; Restore (JSON)</button>
+        </div>
+
+        <!-- TAB 1: JURY NOMINATIONS -->
+        <div id="tabNominations" class="cms-tab-panel active">
+          <div class="cms-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h2 style="font-size: 1.4rem; color: var(--color-ivory); font-family: var(--font-heading);">
+                  Confidential Nominations Vault
+                </h2>
+                <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin: 0;">
+                  Stored securely in the isolated volunteer vault. Not exposed to public web scrapers.
+                </p>
+              </div>
+              <button id="exportNominationsCsvBtn" class="btn btn-outline-gold" style="font-size: 0.75rem; padding: 0.6rem 1.2rem;">
+                Export Dossiers (CSV)
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="cms-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Nominee Name</th>
+                    <th>Category</th>
+                    <th>City / State</th>
+                    <th>Nominator</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="nominationsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: SITE SETTINGS & ANNUAL EDITION -->
+        <div id="tabSettings" class="cms-tab-panel">
+          <div class="cms-card">
+            <h2 style="font-size: 1.4rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.5rem;">
+              Edit Event Metadata &amp; Annual Edition
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--color-muted-text-dark); margin-bottom: 1.8rem;">
+              Change the event date, year, location, and theme. Any change saved here updates the site data immediately.
+            </p>
+
+            <form id="cmsSiteSettingsForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Active Edition Year</label>
+                  <select id="settingActiveEdition" class="form-control">
+                    <option value="2026">2026 (Inaugural Edition)</option>
+                    <option value="2027">2027 (Second Annual Edition)</option>
+                    <option value="2028">2028 (Third Annual Edition)</option>
+                    <option value="2029">2029 (Fourth Annual Edition)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Event Date</label>
+                  <input type="text" id="settingEventDate" class="form-control" value="10 November 2026">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Event Location</label>
+                  <input type="text" id="settingEventLocation" class="form-control" value="Mumbai, Maharashtra">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nomination Status</label>
+                  <input type="text" id="settingEventStatus" class="form-control" value="Nominations Open">
+                </div>
+                <div class="form-group col-full">
+                  <label class="form-label">Brand Tagline</label>
+                  <input type="text" id="settingBrandTheme" class="form-control" value="Honouring Quiet Contributors • Celebrating a Lasting Legacy">
+                </div>
+                <div class="form-group col-full">
+                  <button type="submit" class="btn btn-gold">Save Site Settings</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- TAB 3: CATEGORIES MANAGER -->
+        <div id="tabCategories" class="cms-tab-panel">
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem;">
+            <div class="cms-card">
+              <h2 style="font-size: 1.35rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.4rem;">
+                Current Active Categories
+              </h2>
+              <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1.5rem;">
+                Categories currently rendered on the public awards page.
+              </p>
+              <div id="cmsCategoriesList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+
+            <div class="cms-card" style="border-color: var(--color-champagne-gold);">
+              <h2 style="font-size: 1.35rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.4rem;">
+                Ratify New Category (06–10)
+              </h2>
+              <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1.25rem;">
+                When the selection committee confirms categories 06–10, publish them here instantly.
+              </p>
+              <form id="cmsAddCategoryForm">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Category Number</label>
+                  <input type="text" id="newCatNum" class="form-control" placeholder="e.g. 06" maxlength="2" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Category Name</label>
+                  <input type="text" id="newCatName" class="form-control" placeholder="e.g. Grassroots Rural Innovation" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                  <label class="form-label">Description</label>
+                  <textarea id="newCatDesc" class="form-control" placeholder="Recognising unsung innovators who..." required style="min-height:80px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gold" style="width: 100%;">Ratify &amp; Publish</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: LAUREATES / AWARDEES ("THE 10") -->
+        <div id="tabAwardees" class="cms-tab-panel">
+          <div class="cms-card">
+            <h2 style="font-size: 1.4rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.4rem;">
+              Edit The 10 Laureates Profiles
+            </h2>
+            <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1.5rem;">
+              When the honorary jury announces the 10 achievers, update their names, citations, and photographs here.
+            </p>
+            <div id="cmsAwardeesEditContainer" style="display: flex; flex-direction: column; gap: 15px;"></div>
+          </div>
+        </div>
+
+        <!-- TAB 5: VOICES & VIDEOS -->
+        <div id="tabVoices" class="cms-tab-panel">
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem;">
+            <div class="cms-card">
+              <h2 style="font-size: 1.35rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.4rem;">
+                Current Video Testimonies
+              </h2>
+              <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1.5rem;">
+                Organized into the 3 specified circles: Remembering, Supporting, and Circle.
+              </p>
+              <div id="cmsVoicesList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+
+            <div class="cms-card" style="border-color: var(--color-champagne-gold);">
+              <h2 style="font-size: 1.35rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.4rem;">
+                Add Video Message
+              </h2>
+              <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1.25rem;">
+                Add YouTube/Vimeo embed URL (no direct bulky uploads).
+              </p>
+              <form id="cmsAddVoiceForm">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Speaker Name</label>
+                  <input type="text" id="voiceSpeakerName" class="form-control" placeholder="e.g. Dr. Ramesh Gupta" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Role / Affiliation</label>
+                  <input type="text" id="voiceSpeakerRole" class="form-control" placeholder="e.g. Senior Medical Mentor" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Group Category</label>
+                  <select id="voiceGroupKey" class="form-control">
+                    <option value="remembering">Remembering Ghanshyam Dube</option>
+                    <option value="supporting">Supporting GRD-10</option>
+                    <option value="circle">The GRD-10 Circle</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label">Video Embed URL</label>
+                  <input type="text" id="voiceVideoUrl" class="form-control" placeholder="https://www.youtube-nocookie.com/embed/..." required>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                  <label class="form-label">Quote Excerpt</label>
+                  <textarea id="voiceExcerpt" class="form-control" placeholder="«Short 1-2 sentence quote from the message...»" required style="min-height:70px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gold" style="width: 100%;">Add Video Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: 1-CLICK BACKUP & RESTORE -->
+        <div id="tabBackup" class="cms-tab-panel">
+          <div class="cms-card">
+            <h2 style="font-size: 1.4rem; color: var(--color-ivory); font-family: var(--font-heading); margin-bottom: 0.5rem;">
+              Data Backup, Export &amp; Restore
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--color-muted-text-dark); margin-bottom: 2rem;">
+              Preserve complete website data into a portable JSON file. You can restore this file on any computer or server with one click.
+            </p>
+
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+              <button id="cmsDownloadJsonBtn" class="btn btn-gold">Download Full Site Data (JSON)</button>
+              <button id="cmsResetDefaultBtn" class="btn btn-outline-white" onclick="if(confirm('Reset all site data back to initial template?')){window.grdStore.resetToDefault(); location.reload();}">Reset to Template Defaults</button>
+            </div>
+
+            <hr class="gold-divider-left">
+
+            <div style="margin-top: 2rem;">
+              <h3 style="font-size: 1.15rem; color: var(--color-ivory); margin-bottom: 0.5rem;">Restore from JSON File</h3>
+              <p style="font-size: 0.82rem; color: var(--color-muted-text-dark); margin-bottom: 1rem;">
+                Select a previously saved <code>.json</code> backup to overwrite current content.
+              </p>
+              <input type="file" id="cmsRestoreFileInput" accept=".json" style="margin-bottom: 1rem; color: var(--color-ivory);">
+              <div>
+                <button id="cmsApplyRestoreBtn" class="btn btn-outline-gold">Apply Backup to Site</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 15. FINAL FOOTER -->
+  <footer class="site-footer" style="padding: 2.5rem 0 1.5rem; border-top: 1px solid var(--color-navy-border); text-align: center;">
+    <div class="container" style="max-width: 820px; margin: 0 auto; font-size: 0.78rem; color: rgba(245,241,232,0.5);">
+      <div>GRD-10 Institutional Volunteer Portal • MedscapeIndia Legacy Initiative</div>
+      <div style="margin-top: 0.4rem;">&copy; GRD-10 | MedscapeIndia</div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cms.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50" fill="none">
+  <!-- MedscapeIndia subtle seal -->
+  <defs>
+    <linearGradient id="medGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8A96A" />
+      <stop offset="100%" stop-color="#9E8144" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(6, 10)">
+    <circle cx="15" cy="15" r="14" stroke="#C8A96A" stroke-width="0.8" fill="#112735" />
+    <!-- Rod of Asclepius / Caduceus / Health Cross subtle mark -->
+    <path d="M 15 6 L 15 24 M 9 12 L 21 12 M 11 18 L 19 18" stroke="#E4C97E" stroke-width="1.2" stroke-linecap="round" />
+  </g>
+  <g transform="translate(42, 14)">
+    <text x="0" y="11" font-family="'Playfair Display', Georgia, serif" font-size="11" font-weight="700" fill="#F5F1E8" letter-spacing="1">Medscape<tspan fill="#C8A96A">India</tspan></text>
+    <text x="0" y="21" font-family="'Inter', sans-serif" font-size="5.5" font-weight="500" fill="#C8A96A" letter-spacing="1.5">NATIONAL HEALTH ADVOCACY</text>
+  </g>
+</svg>
