@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GRD-10 — SHRI GHANSHYAM DUBE ACHIEVER AWARDS
+   GRD10 — SHRI GHANSHYAM DUBE ACHIEVER AWARDS
    Mobile-First Responsive Design Architecture & Micro-Breakpoints
    Breakpoints explicitly tested: 360px, 390px, 430px, 768px, 1024px, 1280px, 1440px, 1920px
    ========================================================================== */
@@ -444,8 +444,9 @@
   }
 
   .hero-subheading-code {
-    font-size: 1.05rem !important;
-    letter-spacing: 0.16em !important;
+    font-size: 1.45rem !important;
+    letter-spacing: 0.18em !important;
+    padding: 0.35rem 1rem 0.3rem 1.15rem !important;
   }
 
   .hero-institution-tag {
@@ -512,9 +513,76 @@
   /* Hero Portrait Frame Proportional Scaling */
   .hero-portrait-frame {
     width: 100%;
-    max-width: min(280px, 86vw);
+    max-width: min(300px, 86vw);
     margin: 0 auto;
   }
+
+  .royal-octagon-frame {
+    max-width: min(300px, 86vw);
+  }
+
+  .royal-octagon-canvas {
+    padding: 10px;
+    clip-path: polygon(
+      30px 0%, 
+      calc(100% - 30px) 0%, 
+      100% 30px, 
+      100% calc(100% - 30px), 
+      calc(100% - 30px) 100%, 
+      30px 100%, 
+      0% calc(100% - 30px), 
+      0% 30px
+    ) !important;
+  }
+
+  .royal-octagon-canvas::before {
+    clip-path: polygon(
+      30px 0%, 
+      calc(100% - 30px) 0%, 
+      100% 30px, 
+      100% calc(100% - 30px), 
+      calc(100% - 30px) 100%, 
+      30px 100%, 
+      0% calc(100% - 30px), 
+      0% 30px
+    ) !important;
+  }
+
+  .royal-octagon-canvas::after {
+    clip-path: polygon(
+      28px 0%, 
+      calc(100% - 28px) 0%, 
+      100% 28px, 
+      100% calc(100% - 28px), 
+      calc(100% - 28px) 100%, 
+      28px 100%, 
+      0% calc(100% - 28px), 
+      0% 28px
+    ) !important;
+  }
+
+  .royal-octagon-inner-border,
+  .octagon-facet-bevel {
+    clip-path: polygon(
+      25px 0%, 
+      calc(100% - 25px) 0%, 
+      100% 25px, 
+      100% calc(100% - 25px), 
+      calc(100% - 25px) 100%, 
+      25px 100%, 
+      0% calc(100% - 25px), 
+      0% 25px
+    ) !important;
+  }
+
+  .facet-corner {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .facet-corner.tl { top: 14px !important; left: 14px !important; }
+  .facet-corner.tr { top: 14px !important; right: 14px !important; }
+  .facet-corner.bl { bottom: 14px !important; left: 14px !important; }
+  .facet-corner.br { bottom: 14px !important; right: 14px !important; }
 
   .portrait-canvas {
     padding: 8px;
@@ -714,7 +782,28 @@
     padding: 0 0.5rem;
   }
 
-  /* Nomination Form Mobile Experience */
+  /* Nomination Form & Interactive Guidelines Mobile Experience */
+  .category-nav-bar {
+    padding: 4px;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+  .category-tab-btn {
+    min-width: 125px;
+    padding: 0.65rem 0.6rem;
+    font-size: 0.76rem;
+    flex: 0 0 auto;
+  }
+  .guidelines-display-panel {
+    padding: 1.25rem 1rem;
+  }
+  .criteria-numbered-item {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.84rem;
+  }
+  .general-grid {
+    grid-template-columns: 1fr;
+  }
   .nomination-form-container {
     padding: 1.35rem 1rem;
   }
@@ -741,6 +830,8 @@
     max-width: 96vw;
     max-height: 92dvh;
     padding: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-close-btn {
@@ -748,6 +839,56 @@
     right: 0.75rem;
     width: 40px;
     height: 40px;
+  }
+
+  /* Multi-Year Edition Switcher on Mobile */
+  .edition-switcher {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 0.4rem 0.5rem 0.8rem !important;
+    gap: 0.55rem !important;
+    justify-content: flex-start !important;
+    max-width: 100% !important;
+  }
+  .edition-switcher::-webkit-scrollbar {
+    display: none !important;
+  }
+  .btn-edition-pill {
+    flex-shrink: 0 !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Media Lead Hero & Cards Mobile Stack */
+  .media-lead-hero {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Two-column Story & Biography Grids Stack on Mobile */
+  [style*="grid-template-columns: 1fr 1.1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: 1.1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Nomination File List Mobile Wrap */
+  .file-list-preview {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  .file-item-pill {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Footer Network Links stacked on mobile */
@@ -857,4 +998,30 @@
     padding: 0.85rem 1.25rem;
     font-size: 0.78rem;
   }
+
+  .modal-container > div {
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .curtain-monument-title {
+    font-size: 3rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .curtain-emblem-wrap {
+    width: 240px !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .curtain-monument-sub {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .curtain-motto {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 2rem !important;
+  }
 }
+

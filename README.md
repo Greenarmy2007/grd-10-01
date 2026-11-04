@@ -91,7 +91,7 @@ The site contains seven dedicated public sections and an isolated volunteer admi
    - Permanent multi-year archive system (Photo, Document, Newspaper, Video)
 
 8. **`admin.html` (Volunteer CMS Portal)**
-   - Protected jury vault (Passkey: `grd2026`)
+   - Protected jury vault & content management system (Salted SHA-256 Authentication)
    - Private review and CSV export of submitted nominations
    - Category expansion interface to activate categories 06–10 when ratified by the honorary jury
 

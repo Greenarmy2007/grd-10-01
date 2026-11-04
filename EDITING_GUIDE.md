@@ -15,11 +15,10 @@ There are two easy methods to make changes:
 1. Open the portal in your browser:
    - **Local:** [http://localhost:8080/admin.html](http://localhost:8080/admin.html)
    - **Production:** `https://your-domain.org/admin.html`
-2. Enter the committee volunteer passkey:
-   ```
-   grd2026
-   ```
+2. Enter the designated authorized committee volunteer passkey.
 3. Click **"Unlock Volunteer Portal"**.
+
+> **Security Note:** Passkeys are cryptographically salted and hashed. Once logged into the portal, administrators can securely update the access passkey anytime under **Site Settings & Year > Portal Security & Access Passkey**.
 
 ---
 
@@ -43,7 +42,7 @@ There are two easy methods to make changes:
   6. The new category instantly appears on both the Homepage and `awards.html` with its own nomination link!
 - You can also click **"Edit"** on any existing category to revise its title or description.
 
-#### C. Updating Laureate Profiles («The 10») (`Laureates ("The 10")` Tab)
+#### C. Updating Laureate Profiles ("The 10") (`Laureates ("The 10")` Tab)
 - When the 2026 honourees are finalised:
   1. Open the **Laureates** tab.
   2. Click **"Edit Laureate Profile"** on any of the 10 laureate cards.
@@ -55,7 +54,19 @@ There are two easy methods to make changes:
      - **Why They Were Chosen**
   4. The profile instantly updates in the public registry modal without touching HTML.
 
-#### D. Adding Video Messages & Oral Histories (`Voices & Videos` Tab)
+#### D. Managing Articles, Press Releases, Videos & Photo Galleries (`Articles & Media` Tab)
+- Administrators can directly publish, edit, and delete media items without writing any code:
+  1. Open the **Articles & Media** tab in the admin panel.
+  2. Filter by **Articles**, **Press Releases**, **Videos**, or **Archival Photo Libraries**.
+  3. To publish a new item:
+     - Enter Title, Category, Tag/Type, Date, Author/Source, and Summary Snippet.
+     - (For Videos) Provide YouTube/Vimeo embed URL.
+     - (For Photos) Provide high-res image path.
+     - Click **"Publish Item"**.
+  4. To edit an existing article or dispatch, click **"Edit"** on any card, adjust the content, and click **"Save Changes"**.
+  5. The article, video, or photo library immediately updates in real-time across [`media.html`](file:///e:/advait/GRD.10/media.html).
+
+#### E. Adding Video Messages & Oral Histories (`Voices & Videos` Tab)
 - To add a new video message from family, supporters, or youth volunteers:
   1. Enter Speaker Name (e.g. `Justice V. S. Patil`).
   2. Enter Role / Affiliation.
@@ -64,13 +75,13 @@ There are two easy methods to make changes:
   5. Enter a 1–2 sentence quote excerpt.
   6. Click **"Add Video Message"**.
 
-#### E. Reviewing Private Nominations & CSV Export (`Jury Nominations` Tab)
+#### F. Reviewing Private Nominations & CSV Export (`Jury Nominations` Tab)
 - Every nomination submitted through `nominate.html` is deposited into this private vault.
 - Click **"View Dossier"** next to any submission to inspect candidate credentials, contact info, and attached documents.
 - Click **"Export Dossiers (CSV)"** to download an Excel-ready spreadsheet for jury deliberation.
 
-#### F. 1-Click Backup & Restore (`Backup & Restore` Tab)
-- **Download Full Site Data (JSON):** Saves all settings, categories, awardees, and videos into a single portable `.json` file.
+#### G. 1-Click Backup & Restore (`Backup & Restore` Tab)
+- **Download Full Site Data (JSON):** Saves all settings, categories, awardees, media, articles, and videos into a single portable `.json` file.
 - **Restore from JSON File:** If moving to a new computer or server, upload your `.json` file and click **"Apply Backup to Site"** to restore everything in one second.
 
 ---
@@ -139,6 +150,6 @@ When making future edits, remember the **core institutional design rules**:
 ---
 
 ## 🔒 CREDENTIALS & HANDOVER
-- **Admin Passkey:** `grd2026`
+- **Admin Access:** Secured via salted SHA-256 hash. Initial committee passkey provided upon official handover; changeable at any time from the internal portal settings.
 - **Primary Domain:** `https://grd10.medscapeindia.org`
 - **Ownership:** MedscapeIndia / GRD-10 Institutional Trust

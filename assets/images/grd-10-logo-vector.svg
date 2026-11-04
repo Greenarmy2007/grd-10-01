@@ -1,0 +1,220 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient: Deep Midnight Navy to Dark Imperial Blue -->
+    <radialGradient id="navyBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#182e4a"/>
+      <stop offset="70%" stop-color="#0e1d30"/>
+      <stop offset="100%" stop-color="#08111d"/>
+    </radialGradient>
+
+    <!-- Metallic Gold Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEFD2"/>
+      <stop offset="25%" stop-color="#E8CA82"/>
+      <stop offset="50%" stop-color="#C59E56"/>
+      <stop offset="75%" stop-color="#F4DC9E"/>
+      <stop offset="100%" stop-color="#B88F44"/>
+    </linearGradient>
+
+    <linearGradient id="goldRim" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B08332"/>
+      <stop offset="30%" stop-color="#F9E8B6"/>
+      <stop offset="50%" stop-color="#D9B464"/>
+      <stop offset="75%" stop-color="#FFEBB8"/>
+      <stop offset="100%" stop-color="#9C7026"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Navy Background -->
+  <circle cx="250" cy="250" r="246" fill="url(#navyBg)" />
+
+  <!-- Outer Double Gold Metallic Borders -->
+  <circle cx="250" cy="250" r="244" fill="none" stroke="url(#goldRim)" stroke-width="4.5" />
+  <circle cx="250" cy="250" r="236" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.8" />
+  <circle cx="250" cy="250" r="232" fill="none" stroke="url(#goldGrad)" stroke-width="0.75" stroke-opacity="0.4" />
+
+  <!-- Radiating Sunburst Rays (48 rays) -->
+  <g stroke="url(#goldGrad)" stroke-linecap="round" opacity="0.95">
+    <!-- North cluster -->
+    <line x1="250" y1="230" x2="250" y2="40" stroke-width="2.5" />
+    <line x1="245" y1="230" x2="242" y2="52" stroke-width="1.8" />
+    <line x1="255" y1="230" x2="258" y2="52" stroke-width="1.8" />
+    <line x1="239" y1="230" x2="231" y2="60" stroke-width="2.2" />
+    <line x1="261" y1="230" x2="269" y2="60" stroke-width="2.2" />
+    <line x1="233" y1="230" x2="220" y2="68" stroke-width="1.6" />
+    <line x1="267" y1="230" x2="280" y2="68" stroke-width="1.6" />
+    <line x1="227" y1="230" x2="209" y2="76" stroke-width="2.0" />
+    <line x1="273" y1="230" x2="291" y2="76" stroke-width="2.0" />
+    <line x1="221" y1="230" x2="198" y2="85" stroke-width="1.5" />
+    <line x1="279" y1="230" x2="302" y2="85" stroke-width="1.5" />
+    <line x1="215" y1="230" x2="187" y2="95" stroke-width="2.0" />
+    <line x1="285" y1="230" x2="313" y2="95" stroke-width="2.0" />
+    <line x1="209" y1="230" x2="176" y2="105" stroke-width="1.5" />
+    <line x1="291" y1="230" x2="324" y2="105" stroke-width="1.5" />
+    <line x1="203" y1="230" x2="165" y2="116" stroke-width="2.2" />
+    <line x1="297" y1="230" x2="335" y2="116" stroke-width="2.2" />
+    <line x1="197" y1="230" x2="154" y2="128" stroke-width="1.6" />
+    <line x1="303" y1="230" x2="346" y2="128" stroke-width="1.6" />
+    <line x1="191" y1="230" x2="143" y2="140" stroke-width="2.0" />
+    <line x1="309" y1="230" x2="357" y2="140" stroke-width="2.0" />
+    <line x1="185" y1="230" x2="133" y2="154" stroke-width="1.5" />
+    <line x1="315" y1="230" x2="367" y2="154" stroke-width="1.5" />
+    <line x1="179" y1="230" x2="123" y2="168" stroke-width="2.2" />
+    <line x1="321" y1="230" x2="377" y2="168" stroke-width="2.2" />
+    <line x1="173" y1="230" x2="113" y2="183" stroke-width="1.5" />
+    <line x1="327" y1="230" x2="387" y2="183" stroke-width="1.5" />
+    <line x1="168" y1="230" x2="104" y2="200" stroke-width="2.0" />
+    <line x1="332" y1="230" x2="396" y2="200" stroke-width="2.0" />
+    <line x1="163" y1="230" x2="95" y2="218" stroke-width="1.5" />
+    <line x1="337" y1="230" x2="405" y2="218" stroke-width="1.5" />
+    <line x1="158" y1="230" x2="87" y2="236" stroke-width="2.2" />
+    <line x1="342" y1="230" x2="413" y2="236" stroke-width="2.2" />
+    <line x1="154" y1="230" x2="79" y2="255" stroke-width="1.6" />
+    <line x1="346" y1="230" x2="421" y2="255" stroke-width="1.6" />
+    <line x1="150" y1="230" x2="72" y2="275" stroke-width="2.0" />
+    <line x1="350" y1="230" x2="428" y2="275" stroke-width="2.0" />
+    <line x1="147" y1="230" x2="66" y2="295" stroke-width="1.5" />
+    <line x1="353" y1="230" x2="434" y2="295" stroke-width="1.5" />
+    <line x1="145" y1="230" x2="61" y2="315" stroke-width="2.2" />
+    <line x1="355" y1="230" x2="439" y2="315" stroke-width="2.2" />
+    <line x1="144" y1="230" x2="57" y2="335" stroke-width="1.6" />
+    <line x1="356" y1="230" x2="443" y2="335" stroke-width="1.6" />
+    <line x1="144" y1="230" x2="54" y2="355" stroke-width="2.0" />
+    <line x1="356" y1="230" x2="446" y2="355" stroke-width="2.0" />
+    <line x1="145" y1="230" x2="52" y2="375" stroke-width="1.5" />
+    <line x1="355" y1="230" x2="448" y2="375" stroke-width="1.5" />
+  </g>
+
+  <!-- Ring of 10 United Achievers (Holding Hands) -->
+  <!-- 10 Figures positioned at angles: 270 (top), 302, 334, 6, 38, 70 (right), 110, 142, 174, 206, 238 (left) -->
+  <g fill="none" stroke="url(#goldGrad)" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- Outer concentric circular track connecting figures -->
+    <circle cx="250" cy="230" r="142" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2, 5" />
+    <circle cx="250" cy="230" r="92" stroke-width="1.2" stroke-opacity="0.5" />
+
+    <!-- Figure Template Group Definitions rotated around center (250, 230) -->
+    <!-- Angles: -90, -58, -26, 6, 38, 70, 110 (skip bottom opening for GRD10), 170, 202, 234 -->
+    <!-- We generate the 10 stylized humanist figures: -->
+
+    <!-- Figure 1 (Top Center: 0 deg / 12 o'clock relative) -->
+    <g transform="translate(250, 230) rotate(-90)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 2 (-54 deg) -->
+    <g transform="translate(250, 230) rotate(-54)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 3 (-18 deg) -->
+    <g transform="translate(250, 230) rotate(-18)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 4 (+18 deg) -->
+    <g transform="translate(250, 230) rotate(18)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 5 (+54 deg) -->
+    <g transform="translate(250, 230) rotate(54)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 6 (+90 deg) -->
+    <g transform="translate(250, 230) rotate(90)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 7 (+126 deg) -->
+    <g transform="translate(250, 230) rotate(126)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 8 (-126 deg) -->
+    <g transform="translate(250, 230) rotate(-126)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 9 (-162 deg) -->
+    <g transform="translate(250, 230) rotate(-162)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+    <!-- Figure 10 (+162 deg) -->
+    <g transform="translate(250, 230) rotate(162)">
+      <circle cx="140" cy="0" r="10" stroke-width="2.5" fill="#0e1d30" />
+      <path d="M 130 0 L 112 -14 L 88 -20 M 112 -14 L 92 0 L 112 14 M 130 0 L 112 14 L 88 20" stroke-width="2.4" />
+      <path d="M 112 -14 L 140 -35 M 112 14 L 140 35" stroke-width="2.2" />
+    </g>
+
+  </g>
+
+  <!-- Central Focal Typography: GRD10 -->
+  <g id="logoText">
+    <!-- Drop Shadow -->
+    <text x="250" y="386" 
+          font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" 
+          font-size="44" 
+          font-weight="700" 
+          letter-spacing="3" 
+          text-anchor="middle" 
+          fill="#000000" 
+          opacity="0.8">
+      GRD10
+    </text>
+
+    <!-- Main Metallic Gold Title -->
+    <text x="250" y="384" 
+          font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" 
+          font-size="44" 
+          font-weight="700" 
+          letter-spacing="3" 
+          text-anchor="middle" 
+          fill="url(#goldGrad)" 
+          filter="url(#goldGlow)">
+      GRD10
+    </text>
+
+    <!-- Accent Dividing Wings Under GRD10 -->
+    <path d="M 160 402 L 210 402 M 290 402 L 340 402" stroke="url(#goldGrad)" stroke-width="1.2" stroke-linecap="round" opacity="0.7" />
+    <circle cx="250" cy="402" r="2" fill="url(#goldGrad)" opacity="0.8" />
+
+    <!-- Subtitle: HUMANITY • UNITY • POWER (Curved along arc or crisp letter-spaced) -->
+    <text x="250" y="428" 
+          font-family="'Inter', 'Montserrat', 'Arial', sans-serif" 
+          font-size="11" 
+          font-weight="600" 
+          letter-spacing="5" 
+          text-anchor="middle" 
+          fill="url(#goldGrad)" 
+          opacity="0.9">
+      HUMANITY  •  UNITY  •  POWER
+    </text>
+  </g>
+</svg>

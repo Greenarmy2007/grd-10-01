@@ -1,0 +1,41 @@
+# Netlify Build & Functions Configuration
+# GRD-10 National Awards Website
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Environment & Function settings
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/**"]
+
+# Multi-host redirect compatibility:
+# Maps standard /api/submit-nomination to Netlify Functions endpoint
+[[redirects]]
+  from = "/api/submit-nomination"
+  to = "/.netlify/functions/submit-nomination"
+  status = 200
+
+# Security & Header configuration
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

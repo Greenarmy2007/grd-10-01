@@ -32,6 +32,14 @@
       "dest": "/media.html"
     },
     {
+      "src": "/api/submit-nomination",
+      "dest": "/api/submit-nomination.js"
+    },
+    {
+      "src": "/.netlify/functions/submit-nomination",
+      "dest": "/api/submit-nomination.js"
+    },
+    {
       "handle": "filesystem"
     },
     {

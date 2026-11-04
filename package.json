@@ -1,0 +1,16 @@
+{
+  "name": "grd-10-website",
+  "version": "1.0.0",
+  "description": "GRD-10 Achiever Awards Static Website and Netlify Functions for Nomination Pipeline",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "resend": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
