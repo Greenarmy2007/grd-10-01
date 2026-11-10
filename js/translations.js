@@ -21,6 +21,8 @@ window.GRD10_TRANSLATIONS = {
     // Curtain & Hero (index.html)
     curtain_eyebrow: "National Convocation • 10 November 2026",
     curtain_monument_title: "GRD10",
+    curtain_tagline_hindi: "एक व्यक्तित्व • अनगिनत प्रेरणाएँ",
+    curtain_tagline_english: "One Life. Countless Inspirations",
     curtain_motto: "Honouring a Legacy. Inspiring Generations. Creating a Future of Possibilities.",
     curtain_scroll: "Scroll to Explore The Legacy",
     curtain_hindi_attr: "श्री घनश्याम राज नारायण दुबे जी की पावन स्मृति में, डॉ सुनीता दुबे की पहल, परिवार मित्रों और शुभचिंतकों की सामूहिक प्रेरणा से, आर्यन मेडिकल एंड एजुकेशनल ट्रस्ट द्वारा समर्थित",
@@ -255,6 +257,8 @@ window.GRD10_TRANSLATIONS = {
     // Curtain & Hero (index.html)
     curtain_eyebrow: "राष्ट्रीय दीक्षांत सोहळा • १० नोव्हेंबर २०२७",
     curtain_monument_title: "GRD10",
+    curtain_tagline_hindi: "एक व्यक्तिमत्त्व • अगणित प्रेरणा",
+    curtain_tagline_english: "One Life. Countless Inspirations",
     curtain_motto: "वारशाचा सन्मान. पिढ्यांना प्रेरणा. शक्यतांचे उज्ज्वल भविष्य.",
     curtain_scroll: "प्रेरणादायी वारसा जाणून घ्या",
     curtain_hindi_attr: "श्री घनश्याम राज नारायण दुबे यांच्या पावन स्मृतीस समर्पित, डॉ. सुनिता दुबे यांचा पुढाकार, कुटुंबीय, मित्र व हितचिंतकांच्या सामूहिक प्रेरणेतून, आर्यन मेडिकल अँड एज्युकेशनल ट्रस्टचे सहकार्य",
@@ -489,6 +493,8 @@ window.GRD10_TRANSLATIONS = {
     // Curtain & Hero (index.html)
     curtain_eyebrow: "राष्ट्रीय दीक्षांत समारोह • 10 नवंबर 2026",
     curtain_monument_title: "GRD10",
+    curtain_tagline_hindi: "एक व्यक्तित्व • अनगिनत प्रेरणाएँ",
+    curtain_tagline_english: "One Life. Countless Inspirations",
     curtain_motto: "एक विरासत का सम्मान। पीढ़ियों को प्रेरणा। संभावनाओं का उज्ज्वल भविष्य।",
     curtain_scroll: "पावन विरासत को जानने के लिए स्क्रॉल करें",
     curtain_hindi_attr: "श्री घनश्याम राज नारायण दुबे जी की पावन स्मृति में, डॉ सुनीता दुबे की पहल, परिवार मित्रों और शुभचिंतकों की सामूहिक प्रेरणा से, आर्यन मेडिकल एंड एजुकेशनल ट्रस्ट द्वारा समर्थित",

@@ -676,6 +676,12 @@ function initLanguageSwitcher() {
     const curtainScroll = document.querySelector('.curtain-scroll-label');
     if (curtainScroll) curtainScroll.textContent = t.curtain_scroll;
 
+    const curtainTaglineHindi = document.querySelector('.curtain-tagline-hindi');
+    if (curtainTaglineHindi && t.curtain_tagline_hindi) curtainTaglineHindi.textContent = t.curtain_tagline_hindi;
+
+    const curtainTaglineEnglish = document.querySelector('.curtain-tagline-english');
+    if (curtainTaglineEnglish && t.curtain_tagline_english) curtainTaglineEnglish.textContent = t.curtain_tagline_english;
+
     const curtainAttr = document.querySelector('.curtain-attribution');
     if (curtainAttr) curtainAttr.innerHTML = t.curtain_attr;
 
