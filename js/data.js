@@ -526,6 +526,31 @@ class GRD10Store {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stored));
           }
         }
+        // Auto-migrate category 03 to Uttar Bharatiya Ratna in local storage if old legacy names exist
+        if (stored.categories && Array.isArray(stored.categories)) {
+          let updatedCategories = false;
+          stored.categories = stored.categories.map(c => {
+            const isCat3 = c.id === 'cat-03' || c.number === '03' || (c.slug && c.slug.includes('social')) || (c.name && c.name.toLowerCase().includes('social'));
+            if (isCat3) {
+              if (c.name !== 'Uttar Bharatiya Ratna' || c.slug !== 'uttar-bharatiya-ratna') {
+                updatedCategories = true;
+                return {
+                  ...c,
+                  id: 'cat-03',
+                  number: '03',
+                  slug: 'uttar-bharatiya-ratna',
+                  name: 'Uttar Bharatiya Ratna',
+                  description: 'Recognising distinguished individuals of Uttar Bharatiya heritage whose quiet dedication and service have created meaningful societal impact.',
+                  criteria: 'Sustained community upliftment, social contribution, cultural stewardship, and advocacy for vulnerable populations without pursuit of public acclaim.'
+                };
+              }
+            }
+            return c;
+          });
+          if (updatedCategories) {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stored));
+          }
+        }
         if (stored.awardees && Array.isArray(stored.awardees)) {
           let updatedAwardees = false;
           stored.awardees = stored.awardees.map(a => {
@@ -536,6 +561,11 @@ class GRD10Store {
             if (a.categorySlug === 'sports-and-kushti' && (a.photo === 'assets/images/shri-ghanshyam-dube-portrait.svg' || !a.photo)) {
               updatedAwardees = true;
               return { ...a, photo: 'assets/images/laureate-sports-kushti-default.jpg' };
+            }
+            if (a.categorySlug === 'social-service' || (a.categoryName && a.categoryName.toLowerCase().includes('social'))) {
+              updatedAwardees = true;
+              a.categorySlug = 'uttar-bharatiya-ratna';
+              a.categoryName = 'Uttar Bharatiya Ratna';
             }
             if ((a.categorySlug === 'uttar-bharatiya-ratna' || a.categorySlug === 'social-service') && (a.photo === 'assets/images/shri-ghanshyam-dube-portrait.svg' || !a.photo)) {
               updatedAwardees = true;

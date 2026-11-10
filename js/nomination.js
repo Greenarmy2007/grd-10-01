@@ -30,9 +30,13 @@ function initNominationSystem() {
     if (categories && categories.length > 0) {
       catSelect.innerHTML = '<option value="" disabled selected>— Select an Approved Category —</option>';
       categories.forEach(cat => {
+        let displayName = cat.name;
+        if (cat.id === 'cat-03' || cat.number === '03' || (displayName && displayName.toLowerCase().includes('social'))) {
+          displayName = 'Uttar Bharatiya Ratna';
+        }
         const opt = document.createElement('option');
-        opt.value = cat.name;
-        opt.textContent = `${cat.number} — ${cat.name}`;
+        opt.value = displayName;
+        opt.textContent = `${cat.number} — ${displayName}`;
         catSelect.appendChild(opt);
       });
     }
@@ -656,8 +660,13 @@ function initInteractiveGuidelines(catSelect) {
     }
   };
 
-  // Backwards compatibility alias
+  // Backwards compatibility and phonetic aliases
   categoryGuidelinesData['Social Service'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
+  categoryGuidelinesData['Social Work'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
+  categoryGuidelinesData['Social Welfare'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
+  categoryGuidelinesData['Uttar Bhartiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
+  categoryGuidelinesData['Utter Bhartiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
+  categoryGuidelinesData['Utter Bharatiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
 
   // Helper: Normalize category name for matching
   function normalizeCatName(name) {
@@ -665,7 +674,7 @@ function initInteractiveGuidelines(catSelect) {
     const lower = name.toLowerCase();
     if (lower.includes('sport') || lower.includes('kushti')) return 'Sports & Kushti';
     if (lower.includes('educat')) return 'Education';
-    if (lower.includes('uttar') || lower.includes('bharatiya') || lower.includes('ratna') || lower.includes('social')) return 'Uttar Bharatiya Ratna';
+    if (lower.includes('uttar') || lower.includes('utter') || lower.includes('bharat') || lower.includes('bhart') || lower.includes('ratna') || lower.includes('social')) return 'Uttar Bharatiya Ratna';
     if (lower.includes('medic') || lower.includes('health')) return 'Medicine & Healthcare';
     if (lower.includes('media') || lower.includes('journal')) return 'Media & Journalism';
     return name;
