@@ -1,4 +1,4 @@
-{
+﻿{
     "voices":  [
 
                ],
@@ -76,7 +76,82 @@
                          "categorySlug":  "media-and-journalism",
                          "ceremonyNotes":  "To be conferred on 10 November 2026.",
                          "isPlaceholder":  true,
-                         "theirContribution":  "Authored 400+ public-interest investigative expos�s resulting in policy interventions."
+                         "theirContribution":  "Authored 400+ public-interest investigative exposï¿½s resulting in policy interventions."
+                     },
+                     {
+                         "id":  "awd-2026-06",
+                         "number":  "06",
+                         "edition":  "2026",
+                         "name":  "[ Nominee Under Selection Committee Review ]",
+                         "isPlaceholder":  true,
+                         "categorySlug":  "arts-culture-and-literature",
+                         "categoryName":  "Arts, Culture \u0026 Literature",
+                         "photo":  "assets/images/shri-ghanshyam-raj-narayan-dube-portrait.jpg",
+                         "shortBio":  "Dedicated folk artist and cultural archivist preserving endangered regional heritage and literature.",
+                         "theirStory":  "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+                         "theirContribution":  "Revived 12 indigenous folk traditions and archived oral folklore spanning seven decades.",
+                         "whyChosen":  "Lifelong cultural stewardship and creative integrity without commercialization.",
+                         "ceremonyNotes":  "To be conferred on 10 November 2026."
+                     },
+                     {
+                         "id":  "awd-2026-07",
+                         "number":  "07",
+                         "edition":  "2026",
+                         "name":  "[ Nominee Under Selection Committee Review ]",
+                         "isPlaceholder":  true,
+                         "categorySlug":  "agriculture-and-rural-development",
+                         "categoryName":  "Agriculture \u0026 Rural Development",
+                         "photo":  "assets/images/shri-ghanshyam-dube-traditional-kurta.jpg",
+                         "shortBio":  "Agrarian innovator and water conservationist transforming drought-prone village clusters.",
+                         "theirStory":  "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+                         "theirContribution":  "Pioneered community watershed rejuvenation benefiting over 25,000 marginal farmers.",
+                         "whyChosen":  "Exemplifies grounded rural perseverance and quiet community self-reliance.",
+                         "ceremonyNotes":  "To be conferred on 10 November 2026."
+                     },
+                     {
+                         "id":  "awd-2026-08",
+                         "number":  "08",
+                         "edition":  "2026",
+                         "name":  "[ Nominee Under Selection Committee Review ]",
+                         "isPlaceholder":  true,
+                         "categorySlug":  "science-tech-and-innovation",
+                         "categoryName":  "Science, Tech \u0026 Innovation",
+                         "photo":  "assets/images/hero-portrait-royal-frame.png",
+                         "shortBio":  "Grassroots innovator creating affordable, life-saving technical solutions for rural communities.",
+                         "theirStory":  "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+                         "theirContribution":  "Developed frugal solar-powered healthcare and agricultural tools deployed in 120+ villages.",
+                         "whyChosen":  "Pioneering scientific innovation dedicated entirely to human upliftment and public good.",
+                         "ceremonyNotes":  "To be conferred on 10 November 2026."
+                     },
+                     {
+                         "id":  "awd-2026-09",
+                         "number":  "09",
+                         "edition":  "2026",
+                         "name":  "[ Nominee Under Selection Committee Review ]",
+                         "isPlaceholder":  true,
+                         "categorySlug":  "women-empowerment",
+                         "categoryName":  "Women Empowerment",
+                         "photo":  "assets/images/education-beti-padhao.jpg",
+                         "shortBio":  "Community leader mobilizing thousands of marginalized women into self-reliant economic cooperatives.",
+                         "theirStory":  "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+                         "theirContribution":  "Empowered 15,000+ women through vocational cooperatives, legal safety aid, and girl-child literacy.",
+                         "whyChosen":  "Courageous grassroots leadership advancing dignity and equality for rural women.",
+                         "ceremonyNotes":  "To be conferred on 10 November 2026."
+                     },
+                     {
+                         "id":  "awd-2026-10",
+                         "number":  "10",
+                         "edition":  "2026",
+                         "name":  "[ Nominee Under Selection Committee Review ]",
+                         "isPlaceholder":  true,
+                         "categorySlug":  "public-administration-and-youth-leadership",
+                         "categoryName":  "Public Administration \u0026 Youth Leadership",
+                         "photo":  "assets/images/shri-ghanshyam-dube-fit-india.jpg",
+                         "shortBio":  "Exemplary public servant and youth mentor championing ethical governance and community harmony.",
+                         "theirStory":  "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+                         "theirContribution":  "Instituted transparent citizen grievance mechanisms and mobilized 50,000+ youth in nation-building.",
+                         "whyChosen":  "Incorruptible public stewardship aligned with the lifelong moral values of Late Shri Ghanshyam Dube.",
+                         "ceremonyNotes":  "To be conferred on 10 November 2026."
                      }
                  ],
     "editions":  [
@@ -184,121 +259,181 @@
                            "criteria":  "Fearless investigative reporting in the public interest, grassroots regional documentation, ethical storytelling advancing constitutional values.",
                            "description":  "Recognising responsible journalism, media contribution and public-interest storytelling.",
                            "nominationCount":  19
+                       },
+                       {
+                           "id":  "cat-06",
+                           "number":  "06",
+                           "slug":  "arts-culture-and-literature",
+                           "name":  "Arts, Culture \u0026 Literature",
+                           "description":  "Recognising cultural custodians, writers, and artists preserving heritage and inspiring society.",
+                           "status":  "Approved",
+                           "active":  true,
+                           "edition":  "2026",
+                           "nominationCount":  16,
+                           "criteria":  "Preservation of endangered folk traditions, transformative literature, fine arts, and cultural stewardship without pursuit of commercial fame."
+                       },
+                       {
+                           "id":  "cat-07",
+                           "number":  "07",
+                           "slug":  "agriculture-and-rural-development",
+                           "name":  "Agriculture \u0026 Rural Development",
+                           "description":  "Recognising grassroots agrarian pioneers, water conservationists, and rural reformers.",
+                           "status":  "Approved",
+                           "active":  true,
+                           "edition":  "2026",
+                           "nominationCount":  24,
+                           "criteria":  "Sustainable farming practices, indigenous seed conservation, watershed rejuvenation, and village economic self-reliance."
+                       },
+                       {
+                           "id":  "cat-08",
+                           "number":  "08",
+                           "slug":  "science-tech-and-innovation",
+                           "name":  "Science, Tech \u0026 Innovation",
+                           "description":  "Recognising grassroots scientists, inventors, and engineers solving real-world challenges.",
+                           "status":  "Approved",
+                           "active":  true,
+                           "edition":  "2026",
+                           "nominationCount":  18,
+                           "criteria":  "Frugal technological innovations, open-access community tools, and scientific pedagogy fostering rational thinking."
+                       },
+                       {
+                           "id":  "cat-09",
+                           "number":  "09",
+                           "slug":  "women-empowerment",
+                           "name":  "Women Empowerment",
+                           "description":  "Recognising pioneering women and institutional leaders advancing gender equity and grassroots dignity.",
+                           "status":  "Approved",
+                           "active":  true,
+                           "edition":  "2026",
+                           "nominationCount":  27,
+                           "criteria":  "Grassroots women mobilization, vocational economic independence, legal protection advocacy, and female leadership development."
+                       },
+                       {
+                           "id":  "cat-10",
+                           "number":  "10",
+                           "slug":  "public-administration-and-youth-leadership",
+                           "name":  "Public Administration \u0026 Youth Leadership",
+                           "description":  "Recognising exemplary civic administrators, grassroots youth mobilisers, and public servants.",
+                           "status":  "Approved",
+                           "active":  true,
+                           "edition":  "2026",
+                           "nominationCount":  21,
+                           "criteria":  "Transparent last-mile public governance, youth mobilization for nation-building, and incorruptible ethical civic service."
                        }
                    ],
     "juryCcEmail":  "nominations@aaryantrust.org",
-    "media": [
-        {
-            "id": "med-p-healthcare-nursing",
-            "title": "Archival Photo Library: Inspiring Healthcare & Nursing Students",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Healthcare & Educational Outreach",
-            "edition": "2027",
-            "photoCount": 24,
-            "snippet": "Shri Ghanshyam Dube interacting with and inspiring young nursing graduates and grassroots healthcare students, championing humane medicine, selfless patient care, and healthcare equity across Maharashtra.",
-            "image": "assets/images/shri-ghanshyam-dube-nursing-students.jpg"
-        },
-        {
-            "id": "med-p-radhakrishnan",
-            "title": "Archival Photo Library: Courtesy Meeting with Hon'ble Governor Shri C.P. Radhakrishnan",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Raj Bhavan Archive",
-            "edition": "2027",
-            "photoCount": 6,
-            "snippet": "Shri Ghanshyam Dube in a distinguished meeting with Hon'ble Governor Shri C.P. Radhakrishnan at Raj Bhavan, exchanging dialogues on public service and social development.",
-            "image": "assets/images/shri-ghanshyam-dube-cp-radhakrishnan.jpg"
-        },
-        {
-            "id": "med-p-gadkari-visit",
-            "title": "Archival Photo Library: High-Level Dialogue with Union Minister Nitin Gadkari",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "National Statesmanship Archive",
-            "edition": "2027",
-            "photoCount": 8,
-            "snippet": "Shri Ghanshyam Dube during an official residence meeting with Union Minister Shri Nitin Gadkari, deliberating on regional progress and civic initiatives.",
-            "image": "assets/images/shri-ghanshyam-dube-nitin-gadkari-visit.jpg"
-        },
-        {
-            "id": "med-p-family-celebration",
-            "title": "Archival Photo Library: Milestone Celebration & Familial Blessings",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Living Heritage & Fellowship",
-            "edition": "2027",
-            "photoCount": 12,
-            "snippet": "Shri Ghanshyam Dube warmly celebrating joyous milestone moments with family, adorned with ceremonial garlands amidst blessings and shared goodwill.",
-            "image": "assets/images/shri-ghanshyam-dube-family-celebration.jpg"
-        },
-        {
-            "id": "med-p-shinde",
-            "title": "Archival Photo Library: Civic Leadership with CM Shri Eknath Shinde",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Maharashtra Civic Archive",
-            "edition": "2027",
-            "photoCount": 8,
-            "snippet": "Shri Ghanshyam Dube in dialogue with Chief Minister Shri Eknath Shinde discussing grassroots public welfare and regional development.",
-            "image": "assets/images/shri-ghanshyam-dube-eknath-shinde.jpg"
-        },
-        {
-            "id": "med-p-gadkari",
-            "title": "Archival Photo Library: National Dialogue with Union Minister Nitin Gadkari",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "National Statesmanship Archive",
-            "edition": "2027",
-            "photoCount": 6,
-            "snippet": "Shri Ghanshyam Dube with Union Minister Shri Nitin Gadkari, deliberating on rural roads, electrification, and socio-economic infrastructure.",
-            "image": "assets/images/shri-ghanshyam-dube-nitin-gadkari.jpg"
-        },
-        {
-            "id": "med-p-fitindia",
-            "title": "Archival Photo Library: Leading the Fit India Movement",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Sports & Physical Culture Archive",
-            "edition": "2027",
-            "photoCount": 14,
-            "snippet": "As Maharashtra Hind Kesari, Shri Ghanshyamji leading youth advocates and citizens in the nationwide 'I Pledge for Fit India' movement.",
-            "image": "assets/images/shri-ghanshyam-dube-fit-india.jpg"
-        },
-        {
-            "id": "med-p-family",
-            "title": "Archival Photo Library: Spiritual Heritage & Samuhik Prerna",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Living Heritage & Devotion",
-            "edition": "2027",
-            "photoCount": 10,
-            "snippet": "Shri Ghanshyam Dube with Dr Sunita Dube in traditional attire, reflecting cultural devotion, familial service, and spiritual humility.",
-            "image": "assets/images/shri-ghanshyam-dube-family-prerna.jpg"
-        },
-        {
-            "id": "med-p-greeting",
-            "title": "Archival Photo Library: Grassroots Fellowship & Personal Warmth",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Civic Fellowship Archive",
-            "edition": "2027",
-            "photoCount": 16,
-            "snippet": "Shri Ghanshyamji warmly receiving community well-wishers and civic leaders, exemplifying the infectious warmth and conviction he brought to every field.",
-            "image": "assets/images/shri-ghanshyam-dube-flower-greeting.jpg"
-        },
-        {
-            "id": "med-p1",
-            "title": "Archival Photo Library: Formative Wrestling Days & Akhada Years (1950s)",
-            "category": "PHOTOGRAPHS",
-            "type": "Photo Library",
-            "date": "Archival Plate #AR-1956",
-            "edition": "2027",
-            "photoCount": 12,
-            "snippet": "Historic vintage archival photographs of Shri Ghanshyam Dube Ji at age 18 during his formative wrestling days in the traditional clay akhadas.",
-            "image": "assets/images/shri-ghanshyam-dube-wrestler-age-18.jpg"
-        }
-    ],
+    "media":  [
+                  {
+                      "id":  "med-p-healthcare-nursing",
+                      "title":  "Archival Photo Library: Inspiring Healthcare \u0026 Nursing Students",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Healthcare \u0026 Educational Outreach",
+                      "edition":  "2027",
+                      "photoCount":  24,
+                      "snippet":  "Shri Ghanshyam Dube interacting with and inspiring young nursing graduates and grassroots healthcare students, championing humane medicine, selfless patient care, and healthcare equity across Maharashtra.",
+                      "image":  "assets/images/shri-ghanshyam-dube-nursing-students.jpg"
+                  },
+                  {
+                      "id":  "med-p-radhakrishnan",
+                      "title":  "Archival Photo Library: Courtesy Meeting with Hon\u0027ble Governor Shri C.P. Radhakrishnan",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Raj Bhavan Archive",
+                      "edition":  "2027",
+                      "photoCount":  6,
+                      "snippet":  "Shri Ghanshyam Dube in a distinguished meeting with Hon\u0027ble Governor Shri C.P. Radhakrishnan at Raj Bhavan, exchanging dialogues on public service and social development.",
+                      "image":  "assets/images/shri-ghanshyam-dube-cp-radhakrishnan.jpg"
+                  },
+                  {
+                      "id":  "med-p-gadkari-visit",
+                      "title":  "Archival Photo Library: High-Level Dialogue with Union Minister Nitin Gadkari",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "National Statesmanship Archive",
+                      "edition":  "2027",
+                      "photoCount":  8,
+                      "snippet":  "Shri Ghanshyam Dube during an official residence meeting with Union Minister Shri Nitin Gadkari, deliberating on regional progress and civic initiatives.",
+                      "image":  "assets/images/shri-ghanshyam-dube-nitin-gadkari-visit.jpg"
+                  },
+                  {
+                      "id":  "med-p-family-celebration",
+                      "title":  "Archival Photo Library: Milestone Celebration \u0026 Familial Blessings",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Living Heritage \u0026 Fellowship",
+                      "edition":  "2027",
+                      "photoCount":  12,
+                      "snippet":  "Shri Ghanshyam Dube warmly celebrating joyous milestone moments with family, adorned with ceremonial garlands amidst blessings and shared goodwill.",
+                      "image":  "assets/images/shri-ghanshyam-dube-family-celebration.jpg"
+                  },
+                  {
+                      "id":  "med-p-shinde",
+                      "title":  "Archival Photo Library: Civic Leadership with CM Shri Eknath Shinde",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Maharashtra Civic Archive",
+                      "edition":  "2027",
+                      "photoCount":  8,
+                      "snippet":  "Shri Ghanshyam Dube in dialogue with Chief Minister Shri Eknath Shinde discussing grassroots public welfare and regional development.",
+                      "image":  "assets/images/shri-ghanshyam-dube-eknath-shinde.jpg"
+                  },
+                  {
+                      "id":  "med-p-gadkari",
+                      "title":  "Archival Photo Library: National Dialogue with Union Minister Nitin Gadkari",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "National Statesmanship Archive",
+                      "edition":  "2027",
+                      "photoCount":  6,
+                      "snippet":  "Shri Ghanshyam Dube with Union Minister Shri Nitin Gadkari, deliberating on rural roads, electrification, and socio-economic infrastructure.",
+                      "image":  "assets/images/shri-ghanshyam-dube-nitin-gadkari.jpg"
+                  },
+                  {
+                      "id":  "med-p-fitindia",
+                      "title":  "Archival Photo Library: Leading the Fit India Movement",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Sports \u0026 Physical Culture Archive",
+                      "edition":  "2027",
+                      "photoCount":  14,
+                      "snippet":  "As Maharashtra Hind Kesari, Shri Ghanshyamji leading youth advocates and citizens in the nationwide \u0027I Pledge for Fit India\u0027 movement.",
+                      "image":  "assets/images/shri-ghanshyam-dube-fit-india.jpg"
+                  },
+                  {
+                      "id":  "med-p-family",
+                      "title":  "Archival Photo Library: Spiritual Heritage \u0026 Samuhik Prerna",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Living Heritage \u0026 Devotion",
+                      "edition":  "2027",
+                      "photoCount":  10,
+                      "snippet":  "Shri Ghanshyam Dube with Dr Sunita Dube in traditional attire, reflecting cultural devotion, familial service, and spiritual humility.",
+                      "image":  "assets/images/shri-ghanshyam-dube-family-prerna.jpg"
+                  },
+                  {
+                      "id":  "med-p-greeting",
+                      "title":  "Archival Photo Library: Grassroots Fellowship \u0026 Personal Warmth",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Civic Fellowship Archive",
+                      "edition":  "2027",
+                      "photoCount":  16,
+                      "snippet":  "Shri Ghanshyamji warmly receiving community well-wishers and civic leaders, exemplifying the infectious warmth and conviction he brought to every field.",
+                      "image":  "assets/images/shri-ghanshyam-dube-flower-greeting.jpg"
+                  },
+                  {
+                      "id":  "med-p1",
+                      "title":  "Archival Photo Library: Formative Wrestling Days \u0026 Akhada Years (1950s)",
+                      "category":  "PHOTOGRAPHS",
+                      "type":  "Photo Library",
+                      "date":  "Archival Plate #AR-1956",
+                      "edition":  "2027",
+                      "photoCount":  12,
+                      "snippet":  "Historic vintage archival photographs of Shri Ghanshyam Dube Ji at age 18 during his formative wrestling days in the traditional clay akhadas.",
+                      "image":  "assets/images/shri-ghanshyam-dube-wrestler-age-18.jpg"
+                  }
+              ],
     "siteContent":  {
                         "heroBadge":  "A Philanthropic Initiative of Aryan Medical \u0026 Educational Trust",
                         "heroTitle":  "SHRI GHANSHYAM RAJ NARAYAN DUBE",

@@ -144,6 +144,66 @@ const GRD10_DEFAULT_DATA = {
       edition: "2026",
       nominationCount: 19,
       criteria: "Fearless investigative reporting in the public interest, grassroots regional documentation, ethical storytelling advancing constitutional values."
+    },
+    {
+      id: "cat-06",
+      number: "06",
+      slug: "arts-culture-and-literature",
+      name: "Arts, Culture & Literature",
+      description: "Recognising cultural custodians, writers, and artists preserving heritage and inspiring society.",
+      status: "Approved",
+      active: true,
+      edition: "2026",
+      nominationCount: 16,
+      criteria: "Preservation of endangered folk traditions, transformative literature, fine arts, and cultural stewardship without pursuit of commercial fame."
+    },
+    {
+      id: "cat-07",
+      number: "07",
+      slug: "agriculture-and-rural-development",
+      name: "Agriculture & Rural Development",
+      description: "Recognising grassroots agrarian pioneers, water conservationists, and rural reformers.",
+      status: "Approved",
+      active: true,
+      edition: "2026",
+      nominationCount: 24,
+      criteria: "Sustainable farming practices, indigenous seed conservation, watershed rejuvenation, and village economic self-reliance."
+    },
+    {
+      id: "cat-08",
+      number: "08",
+      slug: "science-tech-and-innovation",
+      name: "Science, Tech & Innovation",
+      description: "Recognising grassroots scientists, inventors, and engineers solving real-world challenges.",
+      status: "Approved",
+      active: true,
+      edition: "2026",
+      nominationCount: 18,
+      criteria: "Frugal technological innovations, open-access community tools, and scientific pedagogy fostering rational thinking."
+    },
+    {
+      id: "cat-09",
+      number: "09",
+      slug: "women-empowerment",
+      name: "Women Empowerment",
+      description: "Recognising pioneering women and institutional leaders advancing gender equity and grassroots dignity.",
+      status: "Approved",
+      active: true,
+      edition: "2026",
+      nominationCount: 27,
+      criteria: "Grassroots women mobilization, vocational economic independence, legal protection advocacy, and female leadership development."
+    },
+    {
+      id: "cat-10",
+      number: "10",
+      slug: "public-administration-and-youth-leadership",
+      name: "Public Administration & Youth Leadership",
+      description: "Recognising exemplary civic administrators, grassroots youth mobilisers, and public servants.",
+      status: "Approved",
+      active: true,
+      edition: "2026",
+      nominationCount: 21,
+      criteria: "Transparent last-mile public governance, youth mobilization for nation-building, and incorruptible ethical civic service."
     }
   ],
 
@@ -223,6 +283,81 @@ const GRD10_DEFAULT_DATA = {
       theirStory: "Story currently preserved in confidential jury archives until the official announcement.",
       theirContribution: "Authored 400+ public-interest investigative exposés resulting in policy interventions.",
       whyChosen: "Stood steadfast in defense of truth without seeking commercial visibility.",
+      ceremonyNotes: "To be conferred on 10 November 2026."
+    },
+    {
+      id: "awd-2026-06",
+      number: "06",
+      edition: "2026",
+      name: "[ Nominee Under Selection Committee Review ]",
+      isPlaceholder: true,
+      categorySlug: "arts-culture-and-literature",
+      categoryName: "Arts, Culture & Literature",
+      photo: "assets/images/shri-ghanshyam-raj-narayan-dube-portrait.jpg",
+      shortBio: "Dedicated folk artist and cultural archivist preserving endangered regional heritage and literature.",
+      theirStory: "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+      theirContribution: "Revived 12 indigenous folk traditions and archived oral folklore spanning seven decades.",
+      whyChosen: "Lifelong cultural stewardship and creative integrity without commercialization.",
+      ceremonyNotes: "To be conferred on 10 November 2026."
+    },
+    {
+      id: "awd-2026-07",
+      number: "07",
+      edition: "2026",
+      name: "[ Nominee Under Selection Committee Review ]",
+      isPlaceholder: true,
+      categorySlug: "agriculture-and-rural-development",
+      categoryName: "Agriculture & Rural Development",
+      photo: "assets/images/shri-ghanshyam-dube-traditional-kurta.jpg",
+      shortBio: "Agrarian innovator and water conservationist transforming drought-prone village clusters.",
+      theirStory: "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+      theirContribution: "Pioneered community watershed rejuvenation benefiting over 25,000 marginal farmers.",
+      whyChosen: "Exemplifies grounded rural perseverance and quiet community self-reliance.",
+      ceremonyNotes: "To be conferred on 10 November 2026."
+    },
+    {
+      id: "awd-2026-08",
+      number: "08",
+      edition: "2026",
+      name: "[ Nominee Under Selection Committee Review ]",
+      isPlaceholder: true,
+      categorySlug: "science-tech-and-innovation",
+      categoryName: "Science, Tech & Innovation",
+      photo: "assets/images/hero-portrait-royal-frame.png",
+      shortBio: "Grassroots innovator creating affordable, life-saving technical solutions for rural communities.",
+      theirStory: "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+      theirContribution: "Developed frugal solar-powered healthcare and agricultural tools deployed in 120+ villages.",
+      whyChosen: "Pioneering scientific innovation dedicated entirely to human upliftment and public good.",
+      ceremonyNotes: "To be conferred on 10 November 2026."
+    },
+    {
+      id: "awd-2026-09",
+      number: "09",
+      edition: "2026",
+      name: "[ Nominee Under Selection Committee Review ]",
+      isPlaceholder: true,
+      categorySlug: "women-empowerment",
+      categoryName: "Women Empowerment",
+      photo: "assets/images/education-beti-padhao.jpg",
+      shortBio: "Community leader mobilizing thousands of marginalized women into self-reliant economic cooperatives.",
+      theirStory: "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+      theirContribution: "Empowered 15,000+ women through vocational cooperatives, legal safety aid, and girl-child literacy.",
+      whyChosen: "Courageous grassroots leadership advancing dignity and equality for rural women.",
+      ceremonyNotes: "To be conferred on 10 November 2026."
+    },
+    {
+      id: "awd-2026-10",
+      number: "10",
+      edition: "2026",
+      name: "[ Nominee Under Selection Committee Review ]",
+      isPlaceholder: true,
+      categorySlug: "public-administration-and-youth-leadership",
+      categoryName: "Public Administration & Youth Leadership",
+      photo: "assets/images/shri-ghanshyam-dube-fit-india.jpg",
+      shortBio: "Exemplary public servant and youth mentor championing ethical governance and community harmony.",
+      theirStory: "Full documentary dossier and profile release scheduled for 10 November 2026 in Mumbai.",
+      theirContribution: "Instituted transparent citizen grievance mechanisms and mobilized 50,000+ youth in nation-building.",
+      whyChosen: "Incorruptible public stewardship aligned with the lifelong moral values of Late Shri Ghanshyam Dube.",
       ceremonyNotes: "To be conferred on 10 November 2026."
     },
     // Historical 2026 Conferred Laureates Archive
@@ -547,6 +682,14 @@ class GRD10Store {
             }
             return c;
           });
+          // Ensure all 10 default categories exist in stored.categories
+          GRD10_DEFAULT_DATA.categories.forEach(defaultCat => {
+            const exists = stored.categories.some(c => c.id === defaultCat.id || c.number === defaultCat.number);
+            if (!exists) {
+              stored.categories.push(defaultCat);
+              updatedCategories = true;
+            }
+          });
           if (updatedCategories) {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stored));
           }
@@ -580,6 +723,14 @@ class GRD10Store {
               return { ...a, photo: 'assets/images/laureate-healthcare-default.jpg' };
             }
             return a;
+          });
+          // Ensure all 10 default awardees exist in stored.awardees
+          GRD10_DEFAULT_DATA.awardees.forEach(defaultAwd => {
+            const exists = stored.awardees.some(a => a.id === defaultAwd.id && a.number === defaultAwd.number);
+            if (!exists) {
+              stored.awardees.push(defaultAwd);
+              updatedAwardees = true;
+            }
           });
           if (updatedAwardees) {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stored));

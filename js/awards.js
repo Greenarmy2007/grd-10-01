@@ -139,17 +139,17 @@ function updateEditionView(editionObj) {
     if (laureatesTitle) laureatesTitle.textContent = `The 10 — Laureate Registry (2026)`;
     if (laureatesSub) laureatesSub.textContent = `Profiles of the 2026 Achievers will be officially unveiled following the conclusion of jury deliberations on 10 November 2026 in Mumbai.`;
     if (laureatesEyebrow) laureatesEyebrow.textContent = `The Registry of Laureates`;
-    if (catReservedBox) catReservedBox.style.display = 'block';
+    if (catReservedBox) catReservedBox.style.display = 'none';
   } else if (year === '2027') {
     if (laureatesTitle) laureatesTitle.textContent = `The 10 — Laureate Registry (2027)`;
     if (laureatesSub) laureatesSub.textContent = `Profiles of the 2027 Achievers will be officially unveiled following the conclusion of jury deliberations on 10 November 2027 in Mumbai.`;
     if (laureatesEyebrow) laureatesEyebrow.textContent = `The Registry of Laureates`;
-    if (catReservedBox) catReservedBox.style.display = 'block';
+    if (catReservedBox) catReservedBox.style.display = 'none';
   } else {
     if (laureatesTitle) laureatesTitle.textContent = `The 10 — Laureate Registry (${year})`;
     if (laureatesSub) laureatesSub.textContent = `Nominations and selection for Edition ${year} will open according to the national calendar.`;
     if (laureatesEyebrow) laureatesEyebrow.textContent = `Future Edition Convocation`;
-    if (catReservedBox) catReservedBox.style.display = 'block';
+    if (catReservedBox) catReservedBox.style.display = 'none';
   }
 
   renderDynamicCategories(year);

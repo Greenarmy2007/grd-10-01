@@ -972,7 +972,12 @@ Record preserved in GRD10 Institutional Vault.
         { number: '02', name: 'Education' },
         { number: '03', name: 'Uttar Bharatiya Ratna' },
         { number: '04', name: 'Medicine & Healthcare' },
-        { number: '05', name: 'Media & Journalism' }
+        { number: '05', name: 'Media & Journalism' },
+        { number: '06', name: 'Arts, Culture & Literature' },
+        { number: '07', name: 'Agriculture & Rural Development' },
+        { number: '08', name: 'Science, Tech & Innovation' },
+        { number: '09', name: 'Women Empowerment' },
+        { number: '10', name: 'Public Administration & Youth Leadership' }
       ];
       const allCategories = data.categories || [];
       const catMap = new Map();
@@ -1317,7 +1322,12 @@ Record preserved in GRD10 Institutional Vault.
       { number: '02', name: 'Education' },
       { number: '03', name: 'Uttar Bharatiya Ratna' },
       { number: '04', name: 'Medicine & Healthcare' },
-      { number: '05', name: 'Media & Journalism' }
+      { number: '05', name: 'Media & Journalism' },
+      { number: '06', name: 'Arts, Culture & Literature' },
+      { number: '07', name: 'Agriculture & Rural Development' },
+      { number: '08', name: 'Science, Tech & Innovation' },
+      { number: '09', name: 'Women Empowerment' },
+      { number: '10', name: 'Public Administration & Youth Leadership' }
     ];
 
     const data = window.grdStore.getData();

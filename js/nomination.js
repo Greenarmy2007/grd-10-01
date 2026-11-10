@@ -657,6 +657,76 @@ function initInteractiveGuidelines(catSelect) {
         'Sustained commitment to responsible journalism, public communication, and public trust.'
       ],
       supportingDocuments: 'Copies of published investigative exposés, broadcast video links, editorial references, press club recognitions, and documentation of tangible public or policy impact.'
+    },
+    'Arts, Culture & Literature': {
+      number: '06',
+      title: 'Arts, Culture and Literature',
+      description: 'Recognising artists, cultural custodians, writers, and performers whose dedicated creative work preserves heritage, enriches cultural life, and inspires society.',
+      criteria: [
+        'Significant and enduring contributions to visual arts, performing arts, folklore, literature, or classical traditions.',
+        'Preservation and revival of endangered folk arts, traditional crafts, regional languages, or oral histories.',
+        'Dedication to artistic mentorship, training younger generations, and promoting accessible cultural expressions.',
+        'Innovative artistic work that addresses pressing social themes, community harmony, and ethical reflection.',
+        'National or regional cultural impact without reliance on commercial commercialization or celebrity pursuit.',
+        'Sustained creative practice, authenticity, and lifelong commitment to cultural stewardship.'
+      ],
+      supportingDocuments: 'Published literary works, exhibition catalogues, performance archives, cultural trust registrations, institutional citations, critical reviews, and documentation of heritage preservation efforts.'
+    },
+    'Agriculture & Rural Development': {
+      number: '07',
+      title: 'Agriculture and Rural Development',
+      description: 'Recognising agrarian pioneers, grassroots farmers, water conservationists, and rural reformers whose innovative efforts advance sustainable farming, food security, and village empowerment.',
+      criteria: [
+        'Sustainable farming practices, indigenous seed conservation, organic cultivation, or natural resource stewardship.',
+        'Grassroots water security, drought mitigation, watershed management, or soil regeneration initiatives.',
+        'Transformative community impact on small and marginal farmers\' livelihoods, income resilience, and food sovereignty.',
+        'Rural cooperative building, farmer-producer collectivisation, or decentralised village economy strengthening.',
+        'Grassroots agricultural innovation, climate-resilient farming techniques, or indigenous knowledge preservation.',
+        'Long-term commitment to rural dignity, village self-reliance, and reversing distress agrarian migration.'
+      ],
+      supportingDocuments: 'Farm yield and soil health records, watershed project documentation, village panchayat resolutions, FPO/cooperative audit certificates, agricultural university citations, and field photography.'
+    },
+    'Science, Tech & Innovation': {
+      number: '08',
+      title: 'Science, Technology and Innovation',
+      description: 'Recognising grassroots scientists, inventors, engineers, and technologists whose frugal innovations and scientific research solve real-world problems for underserved communities.',
+      criteria: [
+        'Grassroots or frugal technological innovations directly solving rural, civic, environmental, or healthcare challenges.',
+        'Scientific inquiry, research, or pedagogical popularisation that fosters rational thinking and scientific temper.',
+        'Open-source, affordable, or decentralised technologies improving access for marginalised populations.',
+        'Environmental sustainability, clean energy adoption, waste management, or climate-adaptation technologies.',
+        'Demonstrable scalability, local community adoption, and verifiable real-world utility.',
+        'Lifelong commitment to science for public benefit and national self-reliance over commercial monetization.'
+      ],
+      supportingDocuments: 'Patent or open-hardware designs, field trial reports, technical whitepapers, community impact audits, institutional endorsements, peer-reviewed papers, and functional demonstration videos.'
+    },
+    'Women Empowerment': {
+      number: '09',
+      title: 'Women Empowerment',
+      description: 'Recognising pioneering women and institutional leaders whose courageous work advances gender equity, economic self-reliance, female safety, education, and grassroots leadership.',
+      criteria: [
+        'Mobilisation of grassroots women through self-help groups, vocational training, cooperative credit, and economic independence.',
+        'Courageous advocacy for women\'s safety, legal rights, health literacy, and freedom from domestic or societal violence.',
+        'Initiatives supporting girl-child education, digital literacy, and leadership training in vulnerable communities.',
+        'Groundbreaking personal resilience and leadership overcoming deep structural adversity to uplift others.',
+        'Measurable social and economic transformations in the lives and autonomy of women and families.',
+        'Creation of enduring, sustainable institutional platforms that nurture female leadership for future generations.'
+      ],
+      supportingDocuments: 'SHG federation records, vocational training outcome reports, legal aid case files, beneficiary testimonials, independent audit reports, government/institutional recognitions, and press documentation.'
+    },
+    'Public Administration & Youth Leadership': {
+      number: '10',
+      title: 'Public Administration and Youth Leadership',
+      description: 'Recognising exemplary civic administrators, grassroots youth mobilisers, and public servants who exemplify unbending integrity, civic stewardship, and youth empowerment.',
+      criteria: [
+        'Transparent, ethical, and empathetic governance prioritizing last-mile public service delivery to common citizens.',
+        'Youth mobilisation for nation-building, civic hygiene, disaster response, sports, and community harmony.',
+        'Systemic reforms reducing bureaucratic hurdles, curbing corruption, or expanding access to citizen entitlements.',
+        'Innovative public-administration initiatives fostering participatory democracy and community consultation.',
+        'Mentorship of underprivileged youth, steering them toward constructive civic duty and skilled livelihoods.',
+        'Uncompromising ethical conduct, civic courage, and selfless service in the spirit of Shri Ghanshyam Dube.'
+      ],
+      supportingDocuments: 'Public administration audit reports, citizen charter implementation briefs, youth program records, community testimonials, government commendations, and documentation of verified administrative reforms.'
     }
   };
 
@@ -668,6 +738,20 @@ function initInteractiveGuidelines(catSelect) {
   categoryGuidelinesData['Utter Bhartiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
   categoryGuidelinesData['Utter Bharatiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
 
+  // Additional aliases for categories 06 - 10
+  categoryGuidelinesData['Arts & Culture'] = categoryGuidelinesData['Arts, Culture & Literature'];
+  categoryGuidelinesData['Arts and Culture'] = categoryGuidelinesData['Arts, Culture & Literature'];
+  categoryGuidelinesData['Literature'] = categoryGuidelinesData['Arts, Culture & Literature'];
+  categoryGuidelinesData['Agriculture'] = categoryGuidelinesData['Agriculture & Rural Development'];
+  categoryGuidelinesData['Rural Development'] = categoryGuidelinesData['Agriculture & Rural Development'];
+  categoryGuidelinesData['Science & Tech'] = categoryGuidelinesData['Science, Tech & Innovation'];
+  categoryGuidelinesData['Science & Technology'] = categoryGuidelinesData['Science, Tech & Innovation'];
+  categoryGuidelinesData['Technology & Innovation'] = categoryGuidelinesData['Science, Tech & Innovation'];
+  categoryGuidelinesData['Innovation'] = categoryGuidelinesData['Science, Tech & Innovation'];
+  categoryGuidelinesData['Women'] = categoryGuidelinesData['Women Empowerment'];
+  categoryGuidelinesData['Public Administration'] = categoryGuidelinesData['Public Administration & Youth Leadership'];
+  categoryGuidelinesData['Youth Leadership'] = categoryGuidelinesData['Public Administration & Youth Leadership'];
+
   // Helper: Normalize category name for matching
   function normalizeCatName(name) {
     if (!name) return '';
@@ -677,6 +761,11 @@ function initInteractiveGuidelines(catSelect) {
     if (lower.includes('uttar') || lower.includes('utter') || lower.includes('bharat') || lower.includes('bhart') || lower.includes('ratna') || lower.includes('social')) return 'Uttar Bharatiya Ratna';
     if (lower.includes('medic') || lower.includes('health')) return 'Medicine & Healthcare';
     if (lower.includes('media') || lower.includes('journal')) return 'Media & Journalism';
+    if (lower.includes('art') || lower.includes('cultur') || lower.includes('literat')) return 'Arts, Culture & Literature';
+    if (lower.includes('agri') || lower.includes('rural') || lower.includes('farm')) return 'Agriculture & Rural Development';
+    if (lower.includes('scien') || lower.includes('tech') || lower.includes('innovat')) return 'Science, Tech & Innovation';
+    if (lower.includes('women') || lower.includes('female') || lower.includes('empower')) return 'Women Empowerment';
+    if (lower.includes('admin') || lower.includes('youth') || lower.includes('govern') || lower.includes('public')) return 'Public Administration & Youth Leadership';
     return name;
   }
 
@@ -730,6 +819,10 @@ function initInteractiveGuidelines(catSelect) {
       tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
       tab.setAttribute('tabindex', isActive ? '0' : '-1');
     });
+
+    if (selectedTab && typeof selectedTab.scrollIntoView === 'function') {
+      selectedTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
 
     const categoryKey = selectedTab.getAttribute('data-category');
     renderGuidelines(categoryKey);
