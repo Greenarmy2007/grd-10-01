@@ -558,11 +558,19 @@ function initNominationSystem() {
 function initInteractiveGuidelines(catSelect) {
   const tabList = document.getElementById('categoryNavTabs');
   const guidelinesPanel = document.getElementById('guidelinesPanel');
-  if (!tabList || !guidelinesPanel) return;
+  const allCategoriesRoster = document.getElementById('allCategoriesRoster');
+  const spotlightWrapper = document.getElementById('spotlightWrapper');
+  const btnViewAll = document.getElementById('btnViewAllCategories');
+  const btnViewSpotlight = document.getElementById('btnViewSpotlight');
+  const quickSelect = document.getElementById('categoryQuickSelect');
+  const quickPills = Array.from(document.querySelectorAll('.category-quick-pill'));
+  const btnPrev = document.getElementById('btnPrevCategory');
+  const btnNext = document.getElementById('btnNextCategory');
 
-  const tabs = Array.from(tabList.querySelectorAll('.category-tab-btn'));
+  const tabs = tabList ? Array.from(tabList.querySelectorAll('.category-tab-btn')) : [];
   const badgeEl = document.getElementById('guidelinesBadge');
   const titleEl = document.getElementById('guidelinesTitle');
+  const subtitleEl = document.getElementById('guidelinesSubtitle');
   const descEl = document.getElementById('guidelinesDesc');
   const criteriaListEl = document.getElementById('guidelinesCriteriaList');
   const supportBoxEl = document.getElementById('guidelinesSupportBox');
@@ -581,150 +589,199 @@ function initInteractiveGuidelines(catSelect) {
     });
   }
 
-  // Structured Category Guidelines Database
+  // View Mode Switcher: All Categories vs Spotlight
+  function setViewMode(mode) {
+    if (mode === 'spotlight') {
+      if (allCategoriesRoster) allCategoriesRoster.style.display = 'none';
+      if (spotlightWrapper) spotlightWrapper.style.display = 'block';
+      if (btnViewAll) {
+        btnViewAll.classList.remove('active');
+        btnViewAll.setAttribute('aria-pressed', 'false');
+      }
+      if (btnViewSpotlight) {
+        btnViewSpotlight.classList.add('active');
+        btnViewSpotlight.setAttribute('aria-pressed', 'true');
+      }
+    } else {
+      if (allCategoriesRoster) allCategoriesRoster.style.display = 'flex';
+      if (spotlightWrapper) spotlightWrapper.style.display = 'none';
+      if (btnViewAll) {
+        btnViewAll.classList.add('active');
+        btnViewAll.setAttribute('aria-pressed', 'true');
+      }
+      if (btnViewSpotlight) {
+        btnViewSpotlight.classList.remove('active');
+        btnViewSpotlight.setAttribute('aria-pressed', 'false');
+      }
+    }
+  }
+
+  if (btnViewAll) {
+    btnViewAll.addEventListener('click', () => setViewMode('all'));
+  }
+  if (btnViewSpotlight) {
+    btnViewSpotlight.addEventListener('click', () => setViewMode('spotlight'));
+  }
+
+  // Structured Category Guidelines Database (Complete Official Criteria 01 - 10)
   const categoryGuidelinesData = {
     'Sports & Kushti': {
       number: '01',
       title: 'Sports and Kushti',
-      description: 'Recognising sportspersons, wrestlers, coaches, and individuals who have made outstanding contributions to sports, particularly Kushti and traditional wrestling.',
+      subtitle: 'Excellence in Sports and Traditional Wrestling',
+      description: 'This category recognises sportspersons, wrestlers, coaches, and other individuals who have made outstanding contributions to sports, particularly Kushti and traditional wrestling.',
       criteria: [
-        'Sports achievements at local, regional, state, national, or international levels.',
-        'Contribution to promoting, preserving, and developing Kushti or other sporting disciplines.',
-        'Training, mentorship, and development of young athletes.',
-        'Positive community impact through youth participation, fitness, discipline, and sporting culture.',
-        'Dedication, perseverance, sportsmanship, and resilience.',
-        'Awards, titles, competitive achievements, and other relevant recognitions.',
-        'Sustained contributions that strengthen sports and create opportunities for future generations.'
+        { title: 'Sports Achievements', description: 'Significant accomplishments at local, regional, state, national, or international levels.' },
+        { title: 'Contribution to Kushti and Sports', description: 'Efforts to promote, preserve, and develop traditional wrestling or other sporting disciplines.' },
+        { title: 'Training and Mentorship', description: 'Contributions to training athletes, nurturing young talent, and guiding aspiring sportspersons.' },
+        { title: 'Community Impact', description: 'Positive influence on youth participation, physical fitness, discipline, and sporting culture.' },
+        { title: 'Dedication and Perseverance', description: "Demonstrated commitment, discipline, sportsmanship, and resilience throughout the nominee's sporting journey." },
+        { title: 'Recognition and Excellence', description: 'Awards, titles, competitive achievements, and other relevant recognitions.' },
+        { title: 'Long-Term Contribution', description: 'Sustained efforts to strengthen sports and create opportunities for future generations.' }
       ],
-      supportingDocuments: 'Certificates of sporting merit, tournament scorecards, championship records, akhada/academy registration or affiliation records, media press reports, and mentor/coach citations.'
+      supportingDocuments: 'Certificates of sporting merit, tournament scorecards, championship records, akhada or academy affiliation records, news clippings, and coach/mentor citations.'
     },
     'Education': {
       number: '02',
       title: 'Education',
-      description: 'Recognising educators, academic leaders, and individuals who have made significant contributions to education, learning, and student development.',
+      subtitle: 'Excellence in Education and Educational Development',
+      description: 'This category recognises educators, academic leaders, and individuals who have made significant contributions to education, learning, and the development of students.',
       criteria: [
-        'Significant contributions to teaching, educational leadership, academic development, or educational initiatives.',
-        'Demonstrable contributions to students\' learning, personal growth, academic performance, or future opportunities.',
-        'Innovative teaching methods, educational programmes, or effective learning practices.',
-        'Efforts to improve educational access for disadvantaged, underserved, or economically weaker communities.',
-        'Mentorship, guidance, talent development, and encouragement of lifelong learning.',
-        'Evidence of improved educational outcomes, student participation, or institutional development.',
-        'Sustainable initiatives that strengthen educational opportunities for future generations.'
+        { title: 'Contribution to Education', description: 'Significant work in teaching, educational leadership, academic development, or educational initiatives.' },
+        { title: 'Student Development', description: "Demonstrable contributions to students' learning, personal growth, academic performance, or future opportunities." },
+        { title: 'Innovation in Teaching', description: 'Introduction of creative teaching methods, educational programmes, or effective learning practices.' },
+        { title: 'Access to Education', description: 'Efforts to improve educational opportunities for disadvantaged, underserved, or economically weaker communities.' },
+        { title: 'Mentorship and Guidance', description: 'Commitment to guiding students, nurturing talent, and encouraging lifelong learning.' },
+        { title: 'Measurable Impact', description: 'Evidence of improvements in educational outcomes, student participation, or institutional development.' },
+        { title: 'Sustainable Contribution', description: 'Initiatives that strengthen educational opportunities and benefit future generations.' }
       ],
       supportingDocuments: 'Academic institution accreditations, curriculum innovation briefs, student outcome metrics, testimonials, publication papers, or documentation of community learning centers.'
     },
     'Uttar Bharatiya Ratna': {
       number: '03',
-      title: 'Uttar Bharatiya Ratna',
-      description: 'Recognising distinguished individuals and community leaders of Uttar Bharatiya heritage whose quiet dedication, societal service, and community development have positively transformed lives.',
+      title: 'Uttar Bharatiya Ratna (Social Service)',
+      subtitle: 'Outstanding Contribution to Society and Community Welfare',
+      description: 'This category recognises distinguished individuals and community leaders whose dedication to social welfare, humanitarian service, and community development has positively transformed lives.',
       criteria: [
-        'Significant and sustained efforts to address social challenges and improve people\'s lives.',
-        'Service to disadvantaged, marginalised, vulnerable, or underserved individuals and communities.',
-        'Community-development initiatives promoting participation, social inclusion, self-reliance, and welfare.',
-        'Innovative and effective approaches to solving social problems.',
-        'Demonstrable impact, including the number of people reached and improvements achieved.',
-        'Leadership, volunteer mobilisation, partnerships, and collective action.',
-        'Long-term commitment and the potential for initiatives to continue, expand, or be replicated.'
+        { title: 'Social Contribution', description: "Significant and sustained efforts to address social challenges and improve people's lives." },
+        { title: 'Service to Vulnerable Communities', description: 'Contributions to the welfare and empowerment of disadvantaged, marginalised, or underserved individuals and communities.' },
+        { title: 'Community Development', description: 'Initiatives that encourage collective participation, social inclusion, self-reliance, and community welfare.' },
+        { title: 'Innovation in Social Service', description: 'Creative and effective approaches to addressing social problems and meeting community needs.' },
+        { title: 'Measurable Impact', description: "Demonstrable benefits arising from the nominee's initiatives, including the number of people reached and the improvements achieved." },
+        { title: 'Leadership and Collaboration', description: 'Ability to mobilise volunteers, build partnerships, and encourage collective action.' },
+        { title: 'Sustainability', description: 'Long-term commitment to social welfare and the potential for initiatives to continue, expand, or be replicated.' }
       ],
       supportingDocuments: 'Project impact dossiers, beneficiary case studies, NGO/trust registration details, third-party audit reports, field photographic documentation, and community testimonials.'
     },
     'Medicine & Healthcare': {
       number: '04',
       title: 'Medicine and Healthcare',
-      description: 'Recognising medical professionals, healthcare practitioners, and individuals who have made outstanding contributions to healthcare delivery, medical practice, and public health.',
+      subtitle: 'Excellence in Medical Practice and Healthcare Services',
+      description: 'This category recognises medical professionals, healthcare practitioners, and individuals who have made outstanding contributions to healthcare delivery, medical practice, and public health.',
       criteria: [
-        'Professional excellence and commitment to high standards of medical practice and patient care.',
-        'Contributions to patient outcomes, access to treatment, and the quality of healthcare services.',
-        'Efforts to provide healthcare to economically disadvantaged populations and underserved communities.',
-        'Contributions to medical research, healthcare innovation, disease prevention, or improved treatment.',
-        'Public-health initiatives involving health awareness, preventive care, or community health.',
-        'Professional integrity, responsible medical practice, and compassionate patient care.',
-        'Sustained efforts to strengthen healthcare services and improve community health.'
+        { title: 'Professional Excellence', description: 'Demonstrated commitment to high standards of medical practice, healthcare delivery, and patient care.' },
+        { title: 'Service to Patients', description: 'Contributions to improving patient outcomes, access to treatment, and the quality of healthcare services.' },
+        { title: 'Service to Underserved Communities', description: 'Efforts to provide healthcare to economically disadvantaged populations and communities with limited access to medical facilities.' },
+        { title: 'Innovation and Research', description: 'Contributions to medical research, healthcare innovation, disease prevention, or improvements in treatment and care.' },
+        { title: 'Public Health Impact', description: 'Initiatives that promote health awareness, preventive care, sanitation, or community health.' },
+        { title: 'Ethics and Compassion', description: 'Commitment to professional integrity, responsible medical practice, and compassionate patient care.' },
+        { title: 'Long-Term Contribution', description: 'Sustained efforts to strengthen healthcare services, develop medical capabilities, and improve community health.' }
       ],
       supportingDocuments: 'Medical council registrations, clinical outreach logs, free health camp records, healthcare innovation summaries, public health research publications, or institutional citations.'
     },
     'Media & Journalism': {
       number: '05',
       title: 'Media and Journalism',
-      description: 'Recognising journalists, media professionals, and individuals whose work demonstrates professional excellence, responsible reporting, and a meaningful contribution to society.',
+      subtitle: 'Excellence in Journalism and Public Communication',
+      description: 'This category recognises journalists, media professionals, and individuals whose work demonstrates professional excellence, responsible reporting, and a meaningful contribution to public awareness and society.',
       criteria: [
-        'Quality, depth, accuracy, and professionalism in reporting, writing, broadcasting, or other media work.',
-        'Contributions to public awareness of important social, civic, cultural, and public-interest issues.',
-        'Commitment to fairness, factual accuracy, responsible reporting, and journalistic ethics.',
-        'Demonstrable social impact through awareness, constructive discussion, or attention to important issues.',
-        'Original reporting, investigative journalism, documentation, or insightful analysis.',
-        'Efforts to represent underrepresented voices and highlight issues affecting vulnerable communities.',
-        'Sustained commitment to responsible journalism, public communication, and public trust.'
+        { title: 'Journalistic Excellence', description: 'Demonstrated quality, depth, accuracy, and professionalism in reporting, writing, broadcasting, or other forms of media work.' },
+        { title: 'Public Interest', description: 'Contributions to informing the public and highlighting issues of social, civic, cultural, or public importance.' },
+        { title: 'Integrity and Ethics', description: 'Commitment to fairness, factual accuracy, responsible reporting, and professional journalistic standards.' },
+        { title: 'Social Impact', description: "The extent to which the nominee's work has raised awareness, encouraged constructive discussion, or contributed to addressing important issues." },
+        { title: 'Investigative and Original Work', description: 'Significant contributions through original reporting, investigative journalism, documentation, or insightful analysis.' },
+        { title: 'Community Representation', description: 'Efforts to highlight underrepresented voices, local concerns, and issues affecting vulnerable communities.' },
+        { title: 'Contribution to Media', description: 'Sustained commitment to responsible journalism, public communication, and strengthening trust in media.' }
       ],
       supportingDocuments: 'Copies of published investigative exposés, broadcast video links, editorial references, press club recognitions, and documentation of tangible public or policy impact.'
     },
     'Arts, Culture & Literature': {
       number: '06',
       title: 'Arts, Culture and Literature',
-      description: 'Recognising artists, cultural custodians, writers, and performers whose dedicated creative work preserves heritage, enriches cultural life, and inspires society.',
+      subtitle: 'Excellence in Arts, Culture and Literary Heritage',
+      description: 'This category recognises artists, writers, poets, cultural custodians, and performers whose dedicated creative work preserves cultural heritage, promotes traditional and contemporary arts, and enriches society.',
       criteria: [
-        'Significant and enduring contributions to visual arts, performing arts, folklore, literature, or classical traditions.',
-        'Preservation and revival of endangered folk arts, traditional crafts, regional languages, or oral histories.',
-        'Dedication to artistic mentorship, training younger generations, and promoting accessible cultural expressions.',
-        'Innovative artistic work that addresses pressing social themes, community harmony, and ethical reflection.',
-        'National or regional cultural impact without reliance on commercial commercialization or celebrity pursuit.',
-        'Sustained creative practice, authenticity, and lifelong commitment to cultural stewardship.'
+        { title: 'Cultural Contribution', description: 'Significant and enduring contributions to visual arts, performing arts, folklore, literature, or classical traditions.' },
+        { title: 'Preservation of Heritage', description: 'Sustained efforts to preserve, document, or revive traditional art forms, crafts, regional languages, or oral histories.' },
+        { title: 'Training and Mentorship', description: 'Dedication to artistic mentorship, training younger generations, and nurturing emerging artistic talent.' },
+        { title: 'Community and Social Resonance', description: 'Creative works that address important social themes, foster cultural harmony, and inspire ethical reflection.' },
+        { title: 'Artistic Excellence & Mastery', description: 'Demonstrated excellence, originality, craftsmanship, and adherence to high artistic and aesthetic standards.' },
+        { title: 'Cultural Access & Representation', description: 'Efforts to make cultural heritage and literary arts accessible to diverse and underserved communities.' },
+        { title: 'Sustained Creative Commitment', description: 'Lifelong dedication, perseverance, and sustained contribution to the enrichment of national culture.' }
       ],
-      supportingDocuments: 'Published literary works, exhibition catalogues, performance archives, cultural trust registrations, institutional citations, critical reviews, and documentation of heritage preservation efforts.'
+      supportingDocuments: 'Published literary works, exhibition catalogues, performance archives, cultural trust accreditations, press reviews, and documentation of heritage conservation.'
     },
     'Agriculture & Rural Development': {
       number: '07',
       title: 'Agriculture and Rural Development',
-      description: 'Recognising agrarian pioneers, grassroots farmers, water conservationists, and rural reformers whose innovative efforts advance sustainable farming, food security, and village empowerment.',
+      subtitle: 'Excellence in Sustainable Agriculture and Rural Transformation',
+      description: 'This category recognises agrarian pioneers, grassroots farmers, water conservationists, and rural reformers whose innovative efforts advance sustainable farming, food security, and village empowerment.',
       criteria: [
-        'Sustainable farming practices, indigenous seed conservation, organic cultivation, or natural resource stewardship.',
-        'Grassroots water security, drought mitigation, watershed management, or soil regeneration initiatives.',
-        'Transformative community impact on small and marginal farmers\' livelihoods, income resilience, and food sovereignty.',
-        'Rural cooperative building, farmer-producer collectivisation, or decentralised village economy strengthening.',
-        'Grassroots agricultural innovation, climate-resilient farming techniques, or indigenous knowledge preservation.',
-        'Long-term commitment to rural dignity, village self-reliance, and reversing distress agrarian migration.'
+        { title: 'Sustainable Agricultural Practices', description: 'Adoption and promotion of eco-friendly farming, organic cultivation, indigenous seed conservation, or soil health management.' },
+        { title: 'Water & Natural Resource Conservation', description: 'Groundbreaking initiatives in rainwater harvesting, watershed management, micro-irrigation, or drought resilience.' },
+        { title: 'Rural Livelihoods & Farmer Income', description: 'Tangible contributions to increasing farm incomes, reducing cultivation costs, and enhancing rural livelihood resilience.' },
+        { title: 'Grassroots Collectivisation', description: 'Formation and leadership of farmer-producer organizations, cooperatives, or self-help federations that empower smallholders.' },
+        { title: 'Agricultural Innovation & Technology', description: 'Frugal farming tools, post-harvest processing innovations, or climate-resilient crop practices tailored for village reality.' },
+        { title: 'Community Empowerment & Youth Engagement', description: 'Motivating rural youth to embrace modern sustainable farming, curbing distress migration, and fostering village self-reliance.' },
+        { title: 'Long-Term Rural Contribution', description: "Sustained dedication to agrarian welfare, rural dignity, and strengthening India's rural economy." }
       ],
-      supportingDocuments: 'Farm yield and soil health records, watershed project documentation, village panchayat resolutions, FPO/cooperative audit certificates, agricultural university citations, and field photography.'
+      supportingDocuments: 'Farm yield records, watershed project documentation, village panchayat citations, FPO/cooperative audit certificates, agricultural university commendations, and field photographs.'
     },
     'Science, Tech & Innovation': {
       number: '08',
       title: 'Science, Technology and Innovation',
-      description: 'Recognising grassroots scientists, inventors, engineers, and technologists whose frugal innovations and scientific research solve real-world problems for underserved communities.',
+      subtitle: 'Excellence in Science, Technology and Practical Innovation',
+      description: 'This category recognises grassroots scientists, inventors, engineers, and technologists whose frugal innovations and scientific research solve real-world problems for underserved communities.',
       criteria: [
-        'Grassroots or frugal technological innovations directly solving rural, civic, environmental, or healthcare challenges.',
-        'Scientific inquiry, research, or pedagogical popularisation that fosters rational thinking and scientific temper.',
-        'Open-source, affordable, or decentralised technologies improving access for marginalised populations.',
-        'Environmental sustainability, clean energy adoption, waste management, or climate-adaptation technologies.',
-        'Demonstrable scalability, local community adoption, and verifiable real-world utility.',
-        'Lifelong commitment to science for public benefit and national self-reliance over commercial monetization.'
+        { title: 'Scientific & Technological Excellence', description: 'High standards of scientific inquiry, engineering rigor, and technical problem-solving.' },
+        { title: 'Grassroots & Frugal Innovation', description: 'Creation of low-cost, scalable, and practical innovations addressing urgent civic, rural, or healthcare challenges.' },
+        { title: 'Societal & Environmental Impact', description: 'Demonstrated improvements in living standards, clean energy, waste management, sanitation, or digital accessibility.' },
+        { title: 'Scientific Temper & Education', description: 'Promoting rational thinking, scientific temper, and tech literacy among students, especially in underprivileged schools.' },
+        { title: 'Ethics and Responsible Tech', description: 'Commitment to open-source access, sustainability, user safety, and human-centric engineering.' },
+        { title: 'Collaborative Capability', description: 'Building interdisciplinary partnerships, open technical resources, and empowering community-level problem-solvers.' },
+        { title: 'Sustained Research & Innovation', description: 'Continuous commitment to technical innovation, research dissemination, and nation-building applications.' }
       ],
-      supportingDocuments: 'Patent or open-hardware designs, field trial reports, technical whitepapers, community impact audits, institutional endorsements, peer-reviewed papers, and functional demonstration videos.'
+      supportingDocuments: 'Patent or open-source documentation, field trial reports, technical whitepapers, community impact audits, institutional endorsements, and demonstration videos.'
     },
     'Women Empowerment': {
       number: '09',
       title: 'Women Empowerment',
-      description: 'Recognising pioneering women and institutional leaders whose courageous work advances gender equity, economic self-reliance, female safety, education, and grassroots leadership.',
+      subtitle: 'Excellence in Gender Equity, Female Leadership and Grassroots Upliftment',
+      description: 'This category recognises pioneering women, community organizers, and institutions whose courageous work advances gender equity, economic self-reliance, female safety, education, and grassroots leadership.',
       criteria: [
-        'Mobilisation of grassroots women through self-help groups, vocational training, cooperative credit, and economic independence.',
-        'Courageous advocacy for women\'s safety, legal rights, health literacy, and freedom from domestic or societal violence.',
-        'Initiatives supporting girl-child education, digital literacy, and leadership training in vulnerable communities.',
-        'Groundbreaking personal resilience and leadership overcoming deep structural adversity to uplift others.',
-        'Measurable social and economic transformations in the lives and autonomy of women and families.',
-        'Creation of enduring, sustainable institutional platforms that nurture female leadership for future generations.'
+        { title: 'Grassroots Women\'s Collectivisation', description: 'Organising women into self-help groups, cooperative societies, and micro-enterprises for economic autonomy.' },
+        { title: 'Educational & Vocational Access', description: 'Significant work in girl-child education, digital literacy, vocational training, and career readiness.' },
+        { title: 'Safety, Legal Rights & Health Advocacy', description: 'Courageous defense of women\'s safety, legal rights, reproductive health literacy, and protection against discrimination.' },
+        { title: 'Female Leadership Development', description: 'Mentoring women to assume active decision-making roles in community councils, panchayats, and civic life.' },
+        { title: 'Measurable Transformation', description: 'Demonstrable improvements in the standard of living, financial security, and dignity of marginalized women.' },
+        { title: 'Resilience and Role Modeling', description: 'Overcoming severe socio-economic adversity to build inspiring pathways for others.' },
+        { title: 'Enduring Institutional Impact', description: 'Building sustainable organizations, shelters, or networks that will safeguard and uplift women for generations.' }
       ],
-      supportingDocuments: 'SHG federation records, vocational training outcome reports, legal aid case files, beneficiary testimonials, independent audit reports, government/institutional recognitions, and press documentation.'
+      supportingDocuments: 'SHG federation reports, vocational training outcome data, legal advocacy case logs, beneficiary testimonials, independent audit reports, and media documentation.'
     },
     'Public Administration & Youth Leadership': {
       number: '10',
       title: 'Public Administration and Youth Leadership',
-      description: 'Recognising exemplary civic administrators, grassroots youth mobilisers, and public servants who exemplify unbending integrity, civic stewardship, and youth empowerment.',
+      subtitle: 'Excellence in Civic Governance, Ethical Public Service and Youth Mentorship',
+      description: 'This category recognises exemplary civic administrators, grassroots youth mobilisers, and public servants who exemplify unbending integrity, civic stewardship, and youth empowerment.',
       criteria: [
-        'Transparent, ethical, and empathetic governance prioritizing last-mile public service delivery to common citizens.',
-        'Youth mobilisation for nation-building, civic hygiene, disaster response, sports, and community harmony.',
-        'Systemic reforms reducing bureaucratic hurdles, curbing corruption, or expanding access to citizen entitlements.',
-        'Innovative public-administration initiatives fostering participatory democracy and community consultation.',
-        'Mentorship of underprivileged youth, steering them toward constructive civic duty and skilled livelihoods.',
-        'Uncompromising ethical conduct, civic courage, and selfless service in the spirit of Shri Ghanshyam Dube.'
+        { title: 'Ethical Governance & Transparency', description: 'Demonstrated commitment to honesty, accountability, and citizen-first delivery in public duties.' },
+        { title: 'Last-Mile Public Service Delivery', description: 'Reforms or initiatives that eliminate bureaucratic hurdles and deliver critical entitlements to underprivileged citizens.' },
+        { title: 'Youth Mobilisation & Nation Building', description: 'Inspiring, organising, and mentoring youth for constructive community service, disaster response, civic hygiene, and sports.' },
+        { title: 'Innovation in Civic Administration', description: 'Adoption of citizen-friendly administrative processes, digital grievance redressal, or participatory governance.' },
+        { title: 'Crisis Leadership & Community Harmony', description: 'Exemplary resilience, empathy, and decisive leadership during public emergencies or social challenges.' },
+        { title: 'Mentorship & Character Building', description: 'Guiding at-risk youth toward skilled livelihoods, civic responsibility, and positive societal participation.' },
+        { title: 'Long-Term Institutional Legacy', description: 'Sustained contributions that rebuild public trust, strengthen democratic institutions, and inspire the next generation of civil servants.' }
       ],
       supportingDocuments: 'Public administration audit reports, citizen charter implementation briefs, youth program records, community testimonials, government commendations, and documentation of verified administrative reforms.'
     }
@@ -738,7 +795,6 @@ function initInteractiveGuidelines(catSelect) {
   categoryGuidelinesData['Utter Bhartiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
   categoryGuidelinesData['Utter Bharatiya Ratna'] = categoryGuidelinesData['Uttar Bharatiya Ratna'];
 
-  // Additional aliases for categories 06 - 10
   categoryGuidelinesData['Arts & Culture'] = categoryGuidelinesData['Arts, Culture & Literature'];
   categoryGuidelinesData['Arts and Culture'] = categoryGuidelinesData['Arts, Culture & Literature'];
   categoryGuidelinesData['Literature'] = categoryGuidelinesData['Arts, Culture & Literature'];
@@ -769,26 +825,34 @@ function initInteractiveGuidelines(catSelect) {
     return name;
   }
 
-  // Render Guidelines for a Category (with smooth subtle transition)
+  let currentActiveTabIndex = 0;
+
+  // Render Guidelines in Spotlight Panel
   function renderGuidelines(canonicalCategoryKey) {
     const data = categoryGuidelinesData[canonicalCategoryKey];
-    if (!data) return;
+    if (!data || !guidelinesPanel) return;
 
     guidelinesPanel.classList.add('is-transitioning');
 
     setTimeout(() => {
       if (badgeEl) badgeEl.textContent = `Award Category ${data.number}`;
       if (titleEl) titleEl.textContent = data.title;
+      if (subtitleEl) subtitleEl.textContent = data.subtitle || '';
       if (descEl) descEl.textContent = data.description;
 
       if (criteriaListEl) {
         criteriaListEl.innerHTML = '';
-        data.criteria.forEach((criterion, idx) => {
+        data.criteria.forEach((c, idx) => {
           const li = document.createElement('li');
           li.className = 'criteria-numbered-item';
+          const title = typeof c === 'object' ? c.title : (c.includes(':') ? c.split(':')[0] : `Criterion ${idx + 1}`);
+          const desc = typeof c === 'object' ? c.description : (c.includes(':') ? c.split(':').slice(1).join(':') : c);
           li.innerHTML = `
             <span class="criteria-item-idx" aria-hidden="true">${idx + 1}</span>
-            <span>${criterion}</span>
+            <div class="criteria-item-content">
+              <strong class="criteria-item-title">${title}:</strong>
+              <span>${desc}</span>
+            </div>
           `;
           criteriaListEl.appendChild(li);
         });
@@ -807,12 +871,19 @@ function initInteractiveGuidelines(catSelect) {
         syncIndicatorText.textContent = `Form synchronized to ${data.title}`;
       }
 
+      if (btnPrev) btnPrev.disabled = (currentActiveTabIndex === 0);
+      if (btnNext) btnNext.disabled = (currentActiveTabIndex === tabs.length - 1);
+
       guidelinesPanel.classList.remove('is-transitioning');
     }, 120);
   }
 
   // Activate Tab Function
   function setActiveTab(selectedTab, updateForm = true) {
+    if (!selectedTab) return;
+    const tabIdx = tabs.indexOf(selectedTab);
+    if (tabIdx >= 0) currentActiveTabIndex = tabIdx;
+
     tabs.forEach(tab => {
       const isActive = tab === selectedTab;
       tab.classList.toggle('active', isActive);
@@ -827,7 +898,7 @@ function initInteractiveGuidelines(catSelect) {
     const categoryKey = selectedTab.getAttribute('data-category');
     renderGuidelines(categoryKey);
 
-    // Keep form select synchronized without clearing any form data
+    // Keep form select synchronized without clearing form data
     if (updateForm && catSelect) {
       const targetCanonical = normalizeCatName(categoryKey);
       for (let i = 0; i < catSelect.options.length; i++) {
@@ -840,6 +911,22 @@ function initInteractiveGuidelines(catSelect) {
         }
       }
     }
+  }
+
+  // Step Controls (Prev / Next Category in Spotlight)
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      if (currentActiveTabIndex > 0) {
+        setActiveTab(tabs[currentActiveTabIndex - 1], true);
+      }
+    });
+  }
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      if (currentActiveTabIndex < tabs.length - 1) {
+        setActiveTab(tabs[currentActiveTabIndex + 1], true);
+      }
+    });
   }
 
   // Tab click & keyboard navigation handlers
@@ -869,6 +956,67 @@ function initInteractiveGuidelines(catSelect) {
     });
   });
 
+  // Quick Dropdown Jump Handler
+  if (quickSelect) {
+    quickSelect.addEventListener('change', () => {
+      const targetId = quickSelect.value;
+      if (!targetId) return;
+
+      const targetCard = document.getElementById(targetId);
+      if (targetCard) {
+        // Ensure All Categories view is visible
+        setViewMode('all');
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetCard.classList.add('highlight-card');
+        setTimeout(() => targetCard.classList.remove('highlight-card'), 2000);
+      }
+    });
+  }
+
+  // Quick Pills Jump Handlers
+  quickPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      const targetId = pill.getAttribute('data-target');
+      if (!targetId) return;
+      const targetCard = document.getElementById(targetId);
+      if (targetCard) {
+        setViewMode('all');
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetCard.classList.add('highlight-card');
+        setTimeout(() => targetCard.classList.remove('highlight-card'), 2000);
+      }
+    });
+  });
+
+  // Global helper: Select Category and Scroll directly to Form
+  window.selectCategoryAndProceed = function(categoryName) {
+    if (catSelect) {
+      const canonical = normalizeCatName(categoryName);
+      for (let i = 0; i < catSelect.options.length; i++) {
+        if (normalizeCatName(catSelect.options[i].value) === canonical) {
+          catSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Match tab if user switches to spotlight
+    const canonical = normalizeCatName(categoryName);
+    const matchedTab = tabs.find(t => normalizeCatName(t.getAttribute('data-category')) === canonical);
+    if (matchedTab) {
+      setActiveTab(matchedTab, false);
+    }
+
+    const formEl = document.getElementById('formWrapper');
+    if (formEl) {
+      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const nomineeNameInput = document.getElementById('nomineeName');
+      if (nomineeNameInput) {
+        setTimeout(() => nomineeNameInput.focus(), 500);
+      }
+    }
+  };
+
   // Synchronize from Form Select -> Tab / Guidelines
   if (catSelect) {
     catSelect.addEventListener('change', () => {
@@ -889,12 +1037,28 @@ function initInteractiveGuidelines(catSelect) {
   if (initialCategoryParam) {
     const canonicalFromUrl = normalizeCatName(initialCategoryParam);
     const found = tabs.find(t => normalizeCatName(t.getAttribute('data-category')) === canonicalFromUrl);
-    if (found) initialTab = found;
+    if (found) {
+      initialTab = found;
+      // If user came via specific link e.g. from homepage "Nominate in Healthcare", switch to spotlight or scroll to card
+      const targetCatNum = categoryGuidelinesData[canonicalFromUrl]?.number;
+      if (targetCatNum) {
+        const targetCard = document.getElementById(`cat-criteria-${targetCatNum}`);
+        if (targetCard) {
+          setTimeout(() => {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetCard.classList.add('highlight-card');
+            setTimeout(() => targetCard.classList.remove('highlight-card'), 2000);
+          }, 400);
+        }
+      }
+    }
   } else if (catSelect && catSelect.value) {
     const canonicalFromSelect = normalizeCatName(catSelect.value);
     const found = tabs.find(t => normalizeCatName(t.getAttribute('data-category')) === canonicalFromSelect);
     if (found) initialTab = found;
   }
 
-  setActiveTab(initialTab, true);
+  if (initialTab) {
+    setActiveTab(initialTab, true);
+  }
 }
